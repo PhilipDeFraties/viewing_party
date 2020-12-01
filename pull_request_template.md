@@ -1,39 +1,17 @@
-____ Wrote Tests ____ Implemented ____ Reviewed
+### All Submissions:
 
-Neccesary checkmarks:
+* [ ] Have you followed the guidelines in our Contributing document?
+* [ ] Have you checked to ensure there aren't other open [Pull Requests](../../../pulls) for the same update/change?
 
-    [ ] All Tests are Passing
+<!-- You can erase any parts of this template not applicable to your Pull Request. -->
 
-    [ ] The code will run locally
+### New Feature Submissions:
 
-Type of change
+1. [ ] Does your submission pass tests?
+2. [ ] Have you lint your code locally prior to submission?
 
-    [ ] New feature
-    [ ] Bug Fix
+### Changes to Core Features:
 
-Implements/Fixes:
-
-    description closes #
-
-Check the correct boxes
-
-    [ ] This broke nothing
-    [ ] This broke some stuff
-    [ ] This broke everything
-
-Testing Changes
-
-    [ ] No Tests have been changed
-    [ ] Some Tests have been changed
-    [ ] All of the Tests have been changed(Please describe what in the world happened)
-
-Checklist:
-
-    [ ] My code has no unused/commented out code
-    [ ] I have reviewed my code
-    [ ] I have commented my code, particularly in hard-to-understand areas
-    [ ] I have fully tested my code
-
-(For Fun!)Please Include a link to a gif of your feelings about this branch
-
-Link:
+* [ ] Have you added an explanation of what your changes do and why you'd like us to include them?
+* [ ] Have you written new tests for your core changes, as applicable?
+* [ ] Have you successfully ran tests with your changes locally?
