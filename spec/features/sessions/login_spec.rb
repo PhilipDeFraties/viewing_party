@@ -11,7 +11,7 @@ RSpec.describe "Login/Session Creation" do
 
     click_button "Login"
 
-    expect(current_path).to eq("/dashboard")
+    expect(current_path).to eq("/user/dashboard")
     expect(page).to have_content("You are now logged in")
   end
   it "Invalid email " do
