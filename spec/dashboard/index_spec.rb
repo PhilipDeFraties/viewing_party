@@ -20,5 +20,13 @@ RSpec.describe 'Dashboard Page' do
         expect(page).to have_content('Welcome MovieWatcher1245!')
       end
     end
+
+    it 'I see a button that leads to the discover movies page discover movies' do
+      within '#discover-button' do
+        expect(page).to have_button('Discover Movies')
+        click_button 'Discover Movies'
+        expect(current_path).to eq('/discover')
+      end
+    end
   end
 end
