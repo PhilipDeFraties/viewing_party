@@ -17,6 +17,5 @@ class User < ApplicationRecord
   
   def find_parties
     parties = Party.where(user_id: self.id).or(Party.where(id: PartyGuest.where(user_id: self.id).pluck(:party_id)))
-    require 'pry'; binding.pry
   end
 end
