@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   post "/login", to: "sessions#create"
 
-  namespace :user do 
+  namespace :user do
     get '/dashboard', to: 'dashboard#show'
-  end 
+  end
 
   get '/discover', to: 'movies#search'
 
