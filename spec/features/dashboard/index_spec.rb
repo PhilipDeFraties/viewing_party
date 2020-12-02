@@ -37,24 +37,42 @@ RSpec.describe 'Dashboard Page' do
       end
     end
 
-    it 'I can add a friend and they will appear on my friends list' do
-      within '#friends-search' do
-        fill_in :friends_email, with: @user_2.email
-        click_button 'Add Friend'
-      end
-      expect(current_path).to eq('/user/dashboard')
-      within '#friends' do
-        expect(page).to have_content(@user_2.username)
+    describe "When I attempt to add a friend using a valid user email" do
+      describe "My dashboard is refreshed and I see my new friend on my list" do
+        it "and I am added to my new friend's friendlist" do
+          within '#friends-search' do
+            fill_in :friends_email, with: @user_2.email
+            click_button 'Add Friend'
+          end
+          expect(current_path).to eq('/user/dashboard')
+          within '#friends' do
+            expect(page).to have_content(@user_2.username)
+          end
+          expect(@user_2.friends).to include(@user_1)
+        end
       end
     end
 
-    it "I see a flash message if the email is incorrect" do
-      within '#friends-search' do
-        fill_in :friends_email, with: 'email@fake.com'
-        click_button 'Add Friend'
+    describe "When I attempt to add a friend using an invalid user email" do
+      it "I see a flash message indicating the user doesn't exist" do
+        within '#friends-search' do
+          fill_in :friends_email, with: 'email@fake.com'
+          click_button 'Add Friend'
+        end
+        expect(current_path).to eq('/user/dashboard')
+        expect(page).to have_content('User does not exist.')
       end
-      expect(current_path).to eq('/user/dashboard')
-      expect(page).to have_content('User does not exist.')
+    end
+
+    describe "When I attempt to add a friend using my own email" do
+      it "I see a flash message indicating I cannot add myself" do
+        within '#friends-search' do
+          fill_in :friends_email, with: "#{@user_1.email}"
+          click_button 'Add Friend'
+        end
+        expect(current_path).to eq('/user/dashboard')
+        expect(page).to have_content('You cannot add yourself as a friend.')
+      end
     end
 
     it 'I can see all of my viewing parties' do
