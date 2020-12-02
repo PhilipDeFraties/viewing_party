@@ -26,7 +26,7 @@ RSpec.describe "Discover Page" do
     it "When I fill in the movie search field and click search, I am redirected to the movie search page" do
       fill_in :search,	with: "Misery" 
       click_on 'Find Movies'
-      expect(current_path).to eq('/movies/search')
+      expect(current_path).to eq('/movies/results')
     end
   end
 end
