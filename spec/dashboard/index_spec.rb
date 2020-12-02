@@ -28,5 +28,33 @@ RSpec.describe 'Dashboard Page' do
         expect(current_path).to eq('/discover')
       end
     end
+
+    it "if I don't have any friends, I see a message" do
+      within '#friends' do
+        expect(page).to have_content('You currently have no friends.')
+    end
+
+    it 'I can add a friend and they appear on my friends list' do
+      within '#friends-search' do
+        fill_in :search, with: @user_2.email
+        click_button 'Add Friend'
+      end
+      expect(current_path).to eq(/dashboard) 
+      within '#friends' do
+        expect(page).to have_content(@user_2.name)
+      end
+    end
+
+    it 'if I enter an incorrect email address I see an error message' do
+      within '#friends-search' do
+        fill_in :search, with: 'incorrect_email@gmail.com'
+        click_button 'Add Friend'
+      end
+      expect(current_path).to eq(/dashboard)
+       expect(page).to have_content('User not found.')
+      within '#friends' do
+        expect(page).to_not have_content(@user_2.name)
+      end
+    end
   end
 end
