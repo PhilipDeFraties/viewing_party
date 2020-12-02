@@ -10,6 +10,11 @@
 
   <body>
     <main>
+     <% flash.each do |name, msg| %>
+      <div class= "<%=name%>-flash">
+        <p1><%= msg %></p1>
+      </div>
+    <% end %>
       <%= yield %>
     </main>
     <footer>
