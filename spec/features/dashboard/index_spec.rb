@@ -3,9 +3,12 @@ require 'rails_helper'
 RSpec.describe 'Dashboard Page' do
   describe 'As an authenticated user, when I visit my dashboard page' do
     before(:each) do
-      
-      @party_1 = Party.create!(email: 'user_2@email.com', password: 'password', name: 'User Two')
-      @party_2 = Party.create!(email: 'user_2@email.com', password: 'password', name: 'User Two')
+      @user_1 = create :user
+      @user_2 = create :user
+      @movie_1 = create :movie
+      @movie_1 = create :movie
+      @party_1 = Party.create!(user_id: @user_1.id, movie_id: @movie_1.id, date: '12-24-2020', time: '9:30')
+      @party_2 = Party.create!(user_id: @user_2.id, movie_id: @movie_2.id, date: '12-19-2020', time: '4:30')
       
       visit 'login'
       fill_in :email, with: user_1.email
@@ -28,45 +31,46 @@ RSpec.describe 'Dashboard Page' do
       end
     end
 
-    it "if I don't have any friends, I see a message" do
+    it "if I don't have any friends, it says I have no friends" do
       within '#friends' do
         expect(page).to have_content('You currently have no friends.')
     end
 
-    it 'I can add a friend and they appear on my friends list' do
+    it 'I can add a friend and they will appear on my friends list' do
       within '#friends-search' do
         fill_in :search, with: @user_2.email
         click_button 'Add Friend'
       end
       expect(current_path).to eq('/dashboard') 
       within '#friends' do
-        expect(page).to have_content(@user_2.name)
+        expect(page).to have_content(@user_2.username)
       end
     end
 
-    it 'if I enter an incorrect email address I see an error message' do
+    it "I can search for a friend's email address without filling it out completely" do
       within '#friends-search' do
-        fill_in :search, with: 'incorrect_email@gmail.com'
+        fill_in :search, with: @user_2.email.chop.chop
+        expect(page).to have_content(@user_2.username)
+        expect(page).to have_content(@user_2.email)
         click_button 'Add Friend'
       end
-      expect(current_path).to eq('/dashboard')
-       expect(page).to have_content('User not found.')
+      expect(current_path).to eq('/dashboard') 
       within '#friends' do
-        expect(page).to_not have_content(@user_2.name)
+        expect(page).to have_content(@user_2.username)
       end
     end
-  end
 
   it 'I can see all of my viewing parties' do
-      within '#viewing-parties' do
-        expect(page).to have_content("Harry Potter and the Sorcerer's Stone")
-        expect(page).to have_content('December 10, 2020')
-        expect(page).to have_content('7:00 PM')
+      within '#viewing-party-1' do
+        expect(page).to have_content(@movie_1.title)
+        expect(page).to have_content(@party_1.date)
+        expect(page).to have_content(@party_1.time)
         expect(page).to have_content('Hosting')
-
-        expect(page).to have_content("Fellowship of the Ring")
-        expect(page).to have_content('December 11, 2020')
-        expect(page).to have_content('8:00 PM')
+      end
+      within '#viewing-party-2' do
+        expect(page).to have_content(@movie_2.title)
+        expect(page).to have_content(@party_2.date)
+        expect(page).to have_content(@party_2.time)
         expect(page).to have_content('Invited')
       end
     end
