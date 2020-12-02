@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       redirect_to '/'
     elsif user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to '/dashboard'
+      redirect_to '/user/dashboard'
       flash[:success] = 'You are now logged in'
     else
       flash[:error] = 'Email and/or password is incorrect'
