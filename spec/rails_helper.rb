@@ -55,6 +55,15 @@ RSpec.configure do |config|
   #
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
+
+  Shoulda::Matchers.configure do |config|
+    config.integrate do |with|
+      with.test_framework :rspec
+
+      with.library :rails
+    end
+  end
+  
   config.include Capybara::DSL
   
   config.infer_spec_type_from_file_location!
