@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :movie do
     title { Faker::Movie.title }
-    runtime  {Faker::Number.number(digits: 2) }
-    api_id { Faker::Number.number(digits: 6) }
-    logo { Faker::String.random(length: 4) }
+    runtime  { 90 }
+    api_id { 123456 }
+    logo { Faker::LoremFlickr.image(size: "50x60") }
   end
 end
