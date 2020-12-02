@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root to: "welcome#index"
 
   get '/dashboard', to: 'users#show'
+
+  get '/discover', to: 'movies#search'
 end
