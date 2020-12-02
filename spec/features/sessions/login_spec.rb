@@ -33,5 +33,4 @@ RSpec.describe "Login/Session Creation" do
     expect(page).to have_content("Email and/or password is incorrect")
     expect(current_path).to eq("/")
   end
-  
 end
