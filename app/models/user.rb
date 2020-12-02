@@ -18,4 +18,11 @@ class User < ApplicationRecord
   def find_parties
     parties = Party.where(user_id: id).or(Party.where(id: PartyGuest.where(user_id: id).pluck(:party_id)))
   end
+
+  def create_friendships(current_user_id, new_friend_id)
+    Friendship.create(user_id: current_user_id,
+                      friend_id: new_friend_id)
+    Friendship.create(user_id: new_friend_id,
+                      friend_id: current_user_id)
+  end
 end
