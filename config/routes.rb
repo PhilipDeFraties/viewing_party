@@ -7,4 +7,12 @@ Rails.application.routes.draw do
   end
 
   post "/login", to: "sessions#create"
+
+  namespace :user do 
+    get '/dashboard', to: 'dashboard#show'
+  end 
+
+  get '/discover', to: 'movies#search'
+
+  post '/friendship/create', to: 'friendships#create'
 end

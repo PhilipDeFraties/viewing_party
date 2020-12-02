@@ -1,3 +1,5 @@
 class User::DashboardController < ApplicationController
-  def show; end
+  before_action :require_current_user
+
+  def show;end
 end
