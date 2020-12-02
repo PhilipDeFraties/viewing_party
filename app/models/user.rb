@@ -11,6 +11,12 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, on: :create
 
   has_many :friendships
+  has_many :friends, through: :friendships, source: :friend
+  
   has_many :parties
   
+  def find_parties
+    parties = Party.where(user_id: self.id).or(Party.where(id: PartyGuest.where(user_id: self.id).pluck(:party_id)))
+    require 'pry'; binding.pry
+  end
 end
