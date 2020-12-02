@@ -57,4 +57,19 @@ RSpec.describe 'Dashboard Page' do
       end
     end
   end
+
+  it 'I can see all of my viewing parties' do
+      within '#viewing-parties' do
+        expect(page).to have_content("Harry Potter and the Sorcerer's Stone")
+        expect(page).to have_content('December 10, 2020')
+        expect(page).to have_content('7:00 PM')
+        expect(page).to have_content('Hosting')
+
+        expect(page).to have_content("Fellowship of the Ring")
+        expect(page).to have_content('December 11, 2020')
+        expect(page).to have_content('8:00 PM')
+        expect(page).to have_content('Invited')
+      end
+    end
+  end
 end
