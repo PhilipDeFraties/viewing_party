@@ -8,7 +8,7 @@ class FriendshipsController < ApplicationController
     elsif current_user.email == params[:friends_email]
       flash[:error] = 'You cannot add yourself as a friend.'
       redirect_to '/user/dashboard'
-    else 
+    else
       flash[:error] = 'User does not exist.'
       redirect_to '/user/dashboard'
     end
