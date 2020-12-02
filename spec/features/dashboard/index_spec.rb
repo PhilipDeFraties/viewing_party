@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Dashboard Page' do
   describe 'As an authenticated user, when I visit my dashboard page' do
     before(:each) do
-      @user_1 = User.create!(email: 'user_1@email.com', password: 'password', name: 'User One')
-      @user_2 = User.create!(email: 'user_2@email.com', password: 'password', name: 'User Two')
+      
       @party_1 = Party.create!(email: 'user_2@email.com', password: 'password', name: 'User Two')
       @party_2 = Party.create!(email: 'user_2@email.com', password: 'password', name: 'User Two')
       
@@ -39,7 +38,7 @@ RSpec.describe 'Dashboard Page' do
         fill_in :search, with: @user_2.email
         click_button 'Add Friend'
       end
-      expect(current_path).to eq(/dashboard) 
+      expect(current_path).to eq('/dashboard') 
       within '#friends' do
         expect(page).to have_content(@user_2.name)
       end
@@ -50,7 +49,7 @@ RSpec.describe 'Dashboard Page' do
         fill_in :search, with: 'incorrect_email@gmail.com'
         click_button 'Add Friend'
       end
-      expect(current_path).to eq(/dashboard)
+      expect(current_path).to eq('/dashboard')
        expect(page).to have_content('User not found.')
       within '#friends' do
         expect(page).to_not have_content(@user_2.name)
