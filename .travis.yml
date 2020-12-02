@@ -9,5 +9,8 @@ script:
 deploy:
   provider: heroku
   api_key:
-  app:
+    secure: nyw0qDLo7x3VslPawA0rRE37vWUtHfZaalLiGV+hCRXfHc/WHMuatqSy0TYb5fefqgQDOKam/3Fu5Q9CIWtd6G3gtCa2XxQSvfm5JJ22LnBdmPtUA3+DibfzpRdWuKpdbMsKrUP9n0wl0JGX/rqshL6vR+Px0poqaOwu9Pqah6GUmP+urL808fRgW/4AqK+t/CjQ1wpjeg+wZHue+paovn0mccH7gjSGBIzd9ivFQzrrpla4IEema6QFz4hi648Y2cREji3LuYq093wKve8BXvxtG+BpKPA7lu6m6oCz3ZwVqBaQOatXW50REwVcFqxI6ASNMRlV70CWTgYBbfRIJcaMFDk9rWrWvK+2WoPzdnltuSjuEnPHYtzYdfzEV4tBZ9hups78/ExfMpaAXPQvtwuhvqMG+IuJRUW+FhfQH0KFB0TeNQiphdNKRkjm4u5h/BcmNmdV4eIryJMJ/Uak6ZMCmAT64tvg6Brh223kgMLrvaEsXozug0HnxDaFYFUj1eA/XAfH8nc8PtwLTmPdbMIt6UHaUdg3D0T86g4sjUi9/v5paiGqiAtHRjE7/E1Vu4vdOgaEjbSVNjNokBMeGOGeju/Do/4lvhes0eCORxPzrJK2zhlEeWoyGaimE1qwg9ks4WlhX+kFezqVE/nu7uR653hiYANivTjQXEjfcA0=
+  app: friends-viewing-party
+  on: 
+    repo: Oxalisviolacea/viewing_party
   run: rails db:migrate
