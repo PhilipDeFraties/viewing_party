@@ -3,3 +3,28 @@
 </center>
 
 <%= button_to 'Discover Movies', '/discover', method: :get %>
+
+<h3>Friends</h3>
+<hr>
+<%= form_tag "/applications/#{@application.id}", :method => "get" do %>
+<%= label_tag(:search, "Search for a pet: ") %>
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag("Search") %>
+<% end %>
+<% @search_results.each do |pet| %>
+<%= link_to "#{pet.name}", "/pets/#{pet.id}" %><br>
+<%= button_to "Adopt This Pet", "/applications/#{@application.id}/update_pet", method: :patch, params: {pet: pet} %>
+<% end %>
+
+<%= form_tag '/friends/#{@user.user_id}', method: :post do %>
+
+<%= label_tag :search, "Friend's Email" %>
+<%= text_field_tag :search, params[:search] %><br>
+
+<%= submit_tag 'Search' %>
+
+<% @search_results.each do |pet| %>
+<%= link_to "#{pet.name}", "/pets/#{pet.id}" %><br>
+<%= button_to "Adopt This Pet", "/applications/#{@application.id}/update_pet", method: :patch, params: {pet: pet} %>
+
+<% end %>
