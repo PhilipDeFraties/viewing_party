@@ -5,6 +5,11 @@ class UsersController < ApplicationRecord
     else
       redirect_to root_path
     end
-  end
+    
+    @users = User.all
+    @search_results = []
+    if params[:search] != '' && !params[:search].nil?
+      @search_results = @users.where('lower(name) like ?', "%#{params[:search]}%".downcase)
+    end
   end
 end
