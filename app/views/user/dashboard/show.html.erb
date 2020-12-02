@@ -35,7 +35,6 @@
 <hr>
 <% current_user.find_parties.each do |party| %>
   <section class='party' id='viewing-party-<%= party.id %>'>
-    <%= require 'pry'; binding.pry %>
   <ul>
   <li><%= party.movie.title %></li><br>
   <li><%= party.date %></li><br>

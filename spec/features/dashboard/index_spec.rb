@@ -64,7 +64,7 @@ RSpec.describe 'Dashboard Page' do
         expect(page).to have_content(@party_1.time)
         expect(page).to have_content('Host')
       end
-      save_and_open_page
+      
       within "#viewing-party-#{@party_2.id}" do
         expect(page).to have_content(@movie_2.title)
         expect(page).to have_content(@party_2.date)
