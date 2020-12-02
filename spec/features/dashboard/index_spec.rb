@@ -42,7 +42,7 @@ RSpec.describe 'Dashboard Page' do
         fill_in :friends_email, with: @user_2.email
         click_button 'Add Friend'
       end
-      expect(current_path).to eq('/user/dashboard') 
+      expect(current_path).to eq('/user/dashboard')
       within '#friends' do
         expect(page).to have_content(@user_2.username)
       end
@@ -53,7 +53,7 @@ RSpec.describe 'Dashboard Page' do
         fill_in :friends_email, with: 'email@fake.com'
         click_button 'Add Friend'
       end
-      expect(current_path).to eq('/user/dashboard') 
+      expect(current_path).to eq('/user/dashboard')
       expect(page).to have_content('User does not exist.')
     end
 
@@ -64,7 +64,7 @@ RSpec.describe 'Dashboard Page' do
         expect(page).to have_content(@party_1.time)
         expect(page).to have_content('Host')
       end
-      save_and_open_page
+
       within "#viewing-party-#{@party_2.id}" do
         expect(page).to have_content(@movie_2.title)
         expect(page).to have_content(@party_2.date)

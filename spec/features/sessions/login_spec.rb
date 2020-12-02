@@ -5,7 +5,7 @@ RSpec.describe "Login/Session Creation" do
     @user = User.create!(email: 'test@fake.com', username: 'heftyjake', password: 'heftybags', password_confirmation: 'heftybags',)
     visit '/'
   end
-  it "When I visit the login path I am able to login with valid credentials" do  
+  it "When I visit the login path I am able to login with valid credentials" do
     fill_in :email,	with: @user.email
     fill_in :password,	with: @user.password
 
@@ -33,5 +33,4 @@ RSpec.describe "Login/Session Creation" do
     expect(page).to have_content("Email and/or password is incorrect")
     expect(current_path).to eq("/")
   end
-  
 end
