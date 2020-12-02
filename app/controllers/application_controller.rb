@@ -7,16 +7,9 @@ class ApplicationController < ActionController::Base
   end
 
   def require_current_user
-<<<<<<< HEAD
-    unless current_user
-      flash[:error] = 'Please login.'
-      redirect_to root_path
-    end
-=======
     return if current_user
 
     flash[:error] = 'Please login.'
     redirect_to root_path
->>>>>>> 51d09e3a843e5fc567b92a8bc472b46f8c301c7e
   end
 end
