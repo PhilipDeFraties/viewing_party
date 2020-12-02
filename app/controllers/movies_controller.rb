@@ -1,4 +1,4 @@
-class MoviesController < ApplicationRecord
+class MoviesController < ApplicationController
   def search
 
   end
