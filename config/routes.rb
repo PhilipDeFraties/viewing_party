@@ -10,12 +10,9 @@ Rails.application.routes.draw do
 
   get '/discover', to: 'discover#index'
 
-  
-   get 'movies/top40', to: 'movies#top40'
-   get 'movies/search', to: 'movies#search'
-   get 'movies/results', to: 'movies#search_results'
-   resources :movies, only: %i[show]
+  get 'movies/top40', to: 'movies#top40'
+  get 'movies/search', to: 'movies#search'
+  resources :movies, only: %i[show]
 
-  
   post '/friendship/create', to: 'friendships#create'
 end
