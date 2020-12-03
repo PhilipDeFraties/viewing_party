@@ -110,7 +110,7 @@ RSpec.describe 'Dashboard Page' do
       PartyGuest.delete_all
       Party.delete_all
       visit '/user/dashboard'
-      
+
       within "#parties" do
         expect(page).to have_content("No Parties Scheduled")
       end
