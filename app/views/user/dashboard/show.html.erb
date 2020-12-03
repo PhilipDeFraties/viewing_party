@@ -2,7 +2,7 @@
 <section id="welcome-msg">
 <h1>Welcome <%= current_user.username %>!</h1>
 </section>
-</center>
+
 
 <section id="discover-button">
 <%= button_to 'Discover Movies', '/discover', method: :get %>
@@ -10,37 +10,44 @@
 
 <h3>Friends</h3>
 <hr>
+<section id="friends">
+  <% if current_user.friends.empty? %>
+    <p>You currently have no friends.</p>
+  <% else %>
+    <% current_user.friends.each do |friend| %>
+      <%= friend.username %>
+      <%= friend.email %>
+    <% end %>
+  <% end %>
+<hr>
 <section id="friends-search">
 <%= form_tag '/friendship/create', method: :post do %>
 
-  <%= label_tag :friends_email %>
+  <%= label_tag "Add friend by email:" %>
   <%= text_field_tag :friends_email %><br>
 
   <%= submit_tag 'Add Friend' %>
 <% end %>
 </section>
 
-<section id="friends">
-<% if current_user.friends.empty? %>
-  <p>You currently have no friends.</p>
-<% else %>
-  <% current_user.friends.each do |friend| %>
-    <%= friend.username %>
-    <%= friend.email %>
-  <% end %>
-<% end %>
-</section>
+<hr>
+<section id='parties'>
   <h3>Viewing Parties</h3>
-  <section class='grid-container'>
-    <% current_user.find_parties.each do |party| %>
-      <section class='grid-party' id='party-<%= party.id %>'>
-        <img src=<%= "https://image.tmdb.org/t/p/w500/#{party.movie.logo}" %> alt="No Image" style="width:100%">
-        <ul>
-          <li><%= party.movie.title %></li><br>
-          <li><%= party.date %></li><br>
-          <li><%= party.time %></li><br>
-          <li><%= party.user_status(current_user.id) %></li><br>
-        </ul>
-      </section>
+  <% if current_user.find_parties.empty? %>
+    <h4>No Parties Scheduled</h4>
+  <% else %>
+    <section class='grid-container'>
+      <% current_user.find_parties.each do |party| %>
+        <section class='grid-party' id='party-<%= party.id %>'>
+          <img src=<%= "https://image.tmdb.org/t/p/w500/#{party.movie.logo}" %> alt="No Image" style="width:100%">
+          <ul>
+            <li><%= party.movie.title %></li><br>
+            <li><%= party.date %></li><br>
+            <li><%= party.time %></li><br>
+            <li><%= party.user_status(current_user.id) %></li><br>
+          </ul>
+        </section>
+      <% end %>
     <% end %>
   </section>
+</center>
