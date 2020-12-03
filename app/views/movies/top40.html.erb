@@ -1,0 +1,34 @@
+<center>
+  <h1>Welcome <%= current_user.username %>!</h1>
+
+  <%= button_to 'Find Top Rated Movies', '/movies/top40', method: :get %> <br>
+  
+  <h3>OR</h3> <br>
+
+  <%= form_tag "/movies/search?q=#{:search}", method: :get do %>
+    <%= label_tag 'Search by movie title' %>
+    <%= text_field_tag :search %>
+
+    <%= submit_tag 'Find Movies' %> 
+  <% end%> <br>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Vote Average</th>
+  </tr>
+  <div id='movies-table'>
+  <% @top_40.each do |movie|%>
+      <tr>
+        <td class='title'>
+            <p><%= link_to "#{movie[:title]}", "/movies/#{movie[:id]}" %></p>
+        </td>
+        <td class='rating'>
+              <p><%= movie[:vote_average] %></p>
+        </td>
+      </tr>
+  <% end%>
+  </div>
+</table>
+</center>
+
