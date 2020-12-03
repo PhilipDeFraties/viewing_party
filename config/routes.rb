@@ -8,7 +8,13 @@ Rails.application.routes.draw do
     get '/dashboard', to: 'dashboard#show'
   end
 
-  get '/discover', to: 'movies#search'
+  get '/discover', to: 'discover#index'
 
+  
+   get 'movies/top40', to: 'movies#top40'
+   get 'movies/search', to: 'movies#search'
+   get 'movies/results', to: 'movies#search_results'
+
+  
   post '/friendship/create', to: 'friendships#create'
 end

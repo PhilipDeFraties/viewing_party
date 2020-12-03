@@ -18,10 +18,13 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  color: white;
+  background-color: rgb(32, 32, 32);
 }
 
 main {
   flex: 1;
+  background-color: rgb(32, 32, 32);
 }
 
 footer {
@@ -32,6 +35,16 @@ footer {
 
 
 input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=password], select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -57,7 +70,7 @@ input[type=submit]:hover {
 }
 form {
   align-content: center;
-  background-color: #f2f2f2;
+  background-color: rgb(64, 64, 64);
   padding: 20px;
   width: 60%;
 }

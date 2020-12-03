@@ -1,3 +1,11 @@
 class MoviesController < ApplicationController
-  def search; end
+  def top40; end
+
+  def search
+    search = params[:search]
+
+    redirect_to "/movies/results?q=#{search.downcase}"
+  end
+
+  def search_results; end
 end

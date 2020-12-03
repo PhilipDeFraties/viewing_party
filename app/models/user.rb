@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :parties
 
   def find_parties
-    parties = Party.where(user_id: self.id).or(Party.where(id: PartyGuest.where(user_id: self.id).pluck(:party_id)))
+    parties = Party.where(user_id: id).or(Party.where(id: PartyGuest.where(user_id: id).pluck(:party_id)))
   end
 
   def create_friendships(current_user_id, new_friend_id)
