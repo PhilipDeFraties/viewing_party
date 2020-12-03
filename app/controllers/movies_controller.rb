@@ -1,4 +1,5 @@
 class MoviesController < ApplicationController
+<<<<<<< HEAD
   def show
     
   end
@@ -14,6 +15,9 @@ class MoviesController < ApplicationController
     json2 = JSON.parse(response2.body, symbolize_names: true)
     @top_40 = [json[:results], [json2[:results]]].flatten
   end
+=======
+  def top40; end
+>>>>>>> e94a615b3760a67f7fedecc97b1db8750fd7b266
 
   def search
     search = params[:search]

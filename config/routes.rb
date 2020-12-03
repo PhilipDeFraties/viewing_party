@@ -14,7 +14,10 @@ Rails.application.routes.draw do
    get 'movies/top40', to: 'movies#top40'
    get 'movies/search', to: 'movies#search'
    get 'movies/results', to: 'movies#search_results'
+<<<<<<< HEAD
    resources :movies, only: %i[show]
+=======
+>>>>>>> e94a615b3760a67f7fedecc97b1db8750fd7b266
 
   
   post '/friendship/create', to: 'friendships#create'
