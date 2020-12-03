@@ -7,9 +7,14 @@ RSpec.describe 'Dashboard Page' do
       @user_2 = create :user
       @movie_1 = create :movie
       @movie_2 = create :movie
+      @movie_3 = create :movie
+      @movie_4 = create :movie
       @party_1 = Party.create!(user_id: @user_1.id, movie_id: @movie_1.id, date: '12-24-2020', time: '9:30')
       @party_2 = Party.create!(user_id: @user_2.id, movie_id: @movie_2.id, date: '12-19-2020', time: '4:30')
+      @party_3 = Party.create!(user_id: @user_1.id, movie_id: @movie_3.id, date: '12-20-2020', time: '5:30')
+      @party_4 = Party.create!(user_id: @user_2.id, movie_id: @movie_4.id, date: '12-21-2020', time: '6:30')
       PartyGuest.create!(user_id: @user_1.id, party_id: @party_2.id)
+      PartyGuest.create!(user_id: @user_1.id, party_id: @party_4.id)
 
       visit '/'
       fill_in :email, with: @user_1.email
@@ -75,19 +80,27 @@ RSpec.describe 'Dashboard Page' do
       end
     end
 
-    it 'I can see all of my viewing parties' do
-      within "#viewing-party-#{@party_1.id}" do
-        expect(page).to have_content(@movie_1.title)
-        expect(page).to have_content(@party_1.date)
-        expect(page).to have_content(@party_1.time)
-        expect(page).to have_content('Host')
+    it "I can see the viewing parties I'm hosting" do
+      hosting_parties = [@party_1, @party_3]
+      hosting_parties.each do |party|
+        within "#party-#{party.id}" do
+          expect(page).to have_content("#{party.movie.title}")
+          expect(page).to have_content("#{party.date}")
+          expect(page).to have_content("#{party.time}")
+          expect(page).to have_content("Host")
+        end
       end
+    end
 
-      within "#viewing-party-#{@party_2.id}" do
-        expect(page).to have_content(@movie_2.title)
-        expect(page).to have_content(@party_2.date)
-        expect(page).to have_content(@party_2.time)
-        expect(page).to have_content('Invited')
+    it "I can see the viewing parties I'm invited to" do
+      invited_to_parties = [@party_2, @party_4]
+      invited_to_parties.each do |party|
+        within "#party-#{party.id}" do
+          expect(page).to have_content("#{party.movie.title}",)
+          expect(page).to have_content("#{party.date}")
+          expect(page).to have_content("#{party.time}")
+          expect(page).to have_content("Invited")
+        end
       end
     end
   end
