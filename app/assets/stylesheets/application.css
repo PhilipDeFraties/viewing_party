@@ -92,6 +92,34 @@ form {
   color: white;
 }
 
+.grid-container{
+ 	display: grid;
+ 	grid-template-columns: repeat(5,1fr);
+ 	grid-template-rows: auto;
+ 	grid-gap: 30px;
+ }
+
+ .grid-party{
+ 	background-color: #17BEBB;
+ 	padding: 20px;
+  border: solid;
+ 	border-radius: 12px;
+  border-color: #002244;
+ 	text-align: center
+ }
+ .party-show-grid{
+  width: 60%;
+ 	display: grid;
+  border: solid;
+  border-radius: 12px;
+ 	grid-template-columns: repeat(2,1fr);
+ }
+
+ .party-show-party{
+ 	padding: 20px;
+ 	text-align: right;
+ }
+
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
