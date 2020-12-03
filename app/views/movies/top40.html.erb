@@ -18,7 +18,7 @@
     <th>Vote Average</th>
   </tr>
   <div id='movies-table'>
-  <% @top_40.each do |movie|%>
+  <% @top40.each do |movie|%>
       <tr>
         <td class='title'>
             <p><%= link_to "#{movie[:title]}", "/movies/#{movie[:id]}" %></p>
