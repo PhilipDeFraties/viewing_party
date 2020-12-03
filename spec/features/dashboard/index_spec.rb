@@ -84,6 +84,7 @@ RSpec.describe 'Dashboard Page' do
       hosting_parties = [@party_1, @party_3]
       hosting_parties.each do |party|
         within "#party-#{party.id}" do
+          assert page.has_xpath?("//img[@alt='No Image' and @src = 'https://image.tmdb.org/t/p/w500/#{party.movie.logo}']")
           expect(page).to have_content("#{party.movie.title}")
           expect(page).to have_content("#{party.date}")
           expect(page).to have_content("#{party.time}")
@@ -96,11 +97,22 @@ RSpec.describe 'Dashboard Page' do
       invited_to_parties = [@party_2, @party_4]
       invited_to_parties.each do |party|
         within "#party-#{party.id}" do
+          assert page.has_xpath?("//img[@alt='No Image' and @src = 'https://image.tmdb.org/t/p/w500/#{party.movie.logo}']")
           expect(page).to have_content("#{party.movie.title}",)
           expect(page).to have_content("#{party.date}")
           expect(page).to have_content("#{party.time}")
           expect(page).to have_content("Invited")
         end
+      end
+    end
+
+    it "If there are no scheduled parties, I see a message" do
+      PartyGuest.delete_all
+      Party.delete_all
+      visit '/user/dashboard'
+      
+      within "#parties" do
+        expect(page).to have_content("No Parties Scheduled")
       end
     end
   end
