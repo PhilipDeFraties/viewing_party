@@ -13,9 +13,13 @@ RSpec.describe "Discover Page" do
     end
 
     it "I see a button to discover top 40 movies and when I click the button, I am redirected to the top 40 movie page" do
-      expect(page).to have_button('Find Top Rated Movies')
-      click_on 'Find Top Rated Movies'
-      expect(current_path).to eq('/movies/top40')
+      VCR.use_cassette('top_0_20') do
+        VCR.use_cassette('top_20_40') do
+          expect(page).to have_button('Find Top Rated Movies')
+          click_on 'Find Top Rated Movies'
+          expect(current_path).to eq('/movies/top40')
+        end 
+      end
     end
 
     it "A text field to search movies by name" do
@@ -24,9 +28,11 @@ RSpec.describe "Discover Page" do
     end
 
     it "When I fill in the movie search field and click search, I am redirected to the movie search page" do
-      fill_in :search,	with: "Misery" 
-      click_on 'Find Movies'
-      expect(current_path).to eq('/movies/results')
+      VCR.use_cassette('search_jurassic_park') do
+        fill_in :search,	with: "Jurassic Park" 
+        click_on 'Find Movies'
+        expect(current_path).to eq('/movies/search')
+      end
     end
   end
 end
