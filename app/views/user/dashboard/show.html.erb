@@ -30,17 +30,17 @@
   <% end %>
 <% end %>
 </section>
-<section class='parties'>
   <h3>Viewing Parties</h3>
-  <hr>
-  <% current_user.find_parties.each do |party| %>
-    <section class='party' id='party-<%= party.id %>'>
-    <ul>
-      <li><%= party.movie.title %></li><br>
-      <li><%= party.date %></li><br>
-      <li><%= party.time %></li><br>
-      <li><%= party.user_status(current_user.id) %></li><br>
-    </ul>
-</section>
-  <% end %>
-</section>
+  <section class='grid-container'>
+    <% current_user.find_parties.each do |party| %>
+      <section class='grid-party' id='party-<%= party.id %>'>
+        <img src=<%= "https://image.tmdb.org/t/p/w500/#{party.movie.logo}" %> alt="No Image" style="width:100%">
+        <ul>
+          <li><%= party.movie.title %></li><br>
+          <li><%= party.date %></li><br>
+          <li><%= party.time %></li><br>
+          <li><%= party.user_status(current_user.id) %></li><br>
+        </ul>
+      </section>
+    <% end %>
+  </section>
