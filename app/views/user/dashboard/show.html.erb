@@ -31,16 +31,16 @@
 <% end %>
 </section>
 <section class='parties'>
-<h3>Viewing Parties</h3>
-<hr>
-<% current_user.find_parties.each do |party| %>
-  <section class='party' id='viewing-party-<%= party.id %>'>
-  <ul>
-  <li><%= party.movie.title %></li><br>
-  <li><%= party.date %></li><br>
-  <li><%= party.time %></li><br>
-  <li><%= party.user_status(current_user.id) %></li><br>
-  </ul>
+  <h3>Viewing Parties</h3>
+  <hr>
+  <% current_user.find_parties.each do |party| %>
+    <section class='party' id='party-<%= party.id %>'>
+    <ul>
+      <li><%= party.movie.title %></li><br>
+      <li><%= party.date %></li><br>
+      <li><%= party.time %></li><br>
+      <li><%= party.user_status(current_user.id) %></li><br>
+    </ul>
 </section>
   <% end %>
 </section>
