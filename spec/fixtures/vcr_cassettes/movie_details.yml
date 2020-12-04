@@ -25,7 +25,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 04 Dec 2020 00:04:56 GMT
+      - Fri, 04 Dec 2020 00:41:22 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -42,23 +42,25 @@ http_interactions:
       X-Memc-Key:
       - 695021ffea95f6546d373930b913d56b7dd13988
       X-Memc-Age:
-      - '17292'
+      - '19478'
       X-Memc-Expires:
-      - '4308'
+      - '2122'
       Etag:
       - W/"bd778a6e7ff972e0aa93183b35fad5a4"
       Last-Modified:
-      - Fri, 04 Dec 2020 00:04:56 GMT
+      - Fri, 04 Dec 2020 00:41:22 GMT
       Vary:
       - Accept-Encoding
       X-Cache:
-      - Miss from cloudfront
+      - Hit from cloudfront
       Via:
-      - 1.1 059ffa1366014739c490064f7ef210b5.cloudfront.net (CloudFront)
+      - 1.1 23241b9c368643949e3bb1a1ba4e97c3.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - IAH50-C3
+      - DEN50-C2
       X-Amz-Cf-Id:
-      - i7iLxgP4fnXjcG5sgEMjLvA0u4XGm-MCk1JjWjcFTOjFFNMYmH9UKA==
+      - "-teh88oT99RzFI8zlsQauoe24CUaf_5MFZn4aEKYN-9yhpX9H2KtJw=="
+      Age:
+      - '537'
     body:
       encoding: ASCII-8BIT
       string: '{"adult":false,"backdrop_path":"/fQq1FWp1rC89xDrRMuyFJdFUdMd.jpg","belongs_to_collection":{"id":729322,"name":"Gabriel''s
@@ -68,7 +70,7 @@ http_interactions:
         the pen name Sylvain Reynard.","popularity":37.015,"poster_path":"/qtX2Fg9MTmrbgN1UUvGoCsImTM8.jpg","production_companies":[{"id":92153,"logo_path":"/psjvYkjjgAPtS8utnFYDM8t8yi7.png","name":"PassionFlix","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
         States of America"}],"release_date":"2020-11-19","revenue":0,"runtime":0,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"","title":"Gabriel''s
         Inferno Part III","video":false,"vote_average":9.3,"vote_count":449}'
-  recorded_at: Fri, 04 Dec 2020 00:04:56 GMT
+  recorded_at: Fri, 04 Dec 2020 00:50:18 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/movie/761053/credits?api_key=API_Key&language=en-US
@@ -94,7 +96,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 04 Dec 2020 00:04:56 GMT
+      - Fri, 04 Dec 2020 00:41:22 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -111,25 +113,27 @@ http_interactions:
       X-Memc-Key:
       - 50e894e75aff4dbdac1f2057bd88a03916452e43
       X-Memc-Age:
-      - '5510'
+      - '7696'
       X-Memc-Expires:
-      - '16090'
+      - '13904'
       Etag:
       - W/"b16818495dc77dc7cc8d921f3105b2ff"
       Last-Modified:
-      - Fri, 04 Dec 2020 00:04:56 GMT
+      - Fri, 04 Dec 2020 00:41:22 GMT
       X-Cache:
-      - Miss from cloudfront
+      - Hit from cloudfront
       Via:
-      - 1.1 50e5d5267caad4bbba42e8e11cdd9961.cloudfront.net (CloudFront)
+      - 1.1 0f653303bc95b26f01daff2926667902.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - IAH50-C3
+      - DEN50-C2
       X-Amz-Cf-Id:
-      - 3u9w9ehZ3ZB29lDpaH-8enRqE0wHA3ZjYcC5WZqbihnNLdwf2j-TaA==
+      - rGoDf1ziNXhNPeeRRK-cEg5Bu1Dh0SAoQxF-n4nOfIU5a7mhoUCHIw==
+      Age:
+      - '537'
     body:
       encoding: UTF-8
       string: '{"id":761053,"cast":[],"crew":[]}'
-  recorded_at: Fri, 04 Dec 2020 00:04:56 GMT
+  recorded_at: Fri, 04 Dec 2020 00:50:19 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/movie/761053/reviews?api_key=API_Key&language=en-US
@@ -155,7 +159,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 04 Dec 2020 00:04:57 GMT
+      - Fri, 04 Dec 2020 00:41:22 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -168,25 +172,29 @@ http_interactions:
       Cache-Control:
       - public, max-age=21600
       X-Memc:
-      - MISS, STORE
+      - HIT
       X-Memc-Key:
       - 28d24fd745b810f24e2d0889fb7679c5e1c15702
       X-Memc-Age:
-      - '0'
+      - '2185'
       X-Memc-Expires:
-      - '21600'
+      - '19415'
+      Etag:
+      - W/"8d1eafc5ae7d5fbd9a2740ec98020aeb"
       Last-Modified:
-      - '2020-11-22 16:39:36 +0000'
+      - Fri, 04 Dec 2020 00:41:22 GMT
       X-Cache:
-      - Miss from cloudfront
+      - Hit from cloudfront
       Via:
-      - 1.1 059ffa1366014739c490064f7ef210b5.cloudfront.net (CloudFront)
+      - 1.1 dc50b0effd72a7b2c19bcb0909cfae82.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - IAH50-C3
+      - DEN50-C2
       X-Amz-Cf-Id:
-      - qdGpVE_4ovke0cHe_inajALUqdIqWDsi-kdZEd83Q1zEsl4SAnBJAw==
+      - j1C3ZDwPYWEuEZoeL1-e5VhM3HO-0uu7cs8Qzb6oqnhNpmIJXjZ8Aw==
+      Age:
+      - '537'
     body:
       encoding: UTF-8
       string: '{"id":761053,"page":1,"results":[],"total_pages":0,"total_results":0}'
-  recorded_at: Fri, 04 Dec 2020 00:04:57 GMT
+  recorded_at: Fri, 04 Dec 2020 00:50:19 GMT
 recorded_with: VCR 6.0.0
