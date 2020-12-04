@@ -144,7 +144,47 @@ a:link{
 a:hover{
   text-decoration: underline;
 }
+
 a:visited{
   color: rgb(243, 156, 243);
   text-decoration: underline;
+}
+
+#cast {
+  column-count: 2;
+  display: table;
+  align-items: center;
+  width: 100%;
+}
+
+.cast-col {
+  display: table-cell;
+  text-align: left;
+}
+
+section {
+  padding: 15px;
+}
+
+.movie-stats {
+  display: flex;
+  width: 100%;
+}
+
+#title {
+  display: flex;
+}
+
+/* .new-party:form{
+  width: 33%;
+} */
+
+/* #title:form{
+  width: 33%;
+} */
+
+.new-party {
+  float: right;
+  width: 33%;
+  font-size: 12pt;
 }
