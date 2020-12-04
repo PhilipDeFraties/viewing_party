@@ -1,0 +1,24 @@
+<center>
+  <h1>Welcome <%= current_user.username %>!</h1>
+</center>
+<%= require 'pry'; binding.pry %>
+<h1><%= @results[:details][:title] %></h1>
+
+<p>Vote Average: <%= @results[:details][:vote_average] %></p>
+<p>Runtime: <%= @results[:details][:runtime] / 60 %>hrs <%= @results[:details][:runtime] % 60 %> mins</p>
+<p>Genre: <%= @results[:details][:genres].each { |genre| genre[:name]},%></p>
+<hr>
+<h4>Summary</h4>
+<p><%= @results[:details][:overview] %></p>
+
+<h4>Cast</h4>
+<% @results[:cast][:cast][0..9].each do |member| %>
+<p><%= member[:name] %> as <%= member[:character] %></p>
+<% end %>
+<hr>
+
+<h4><%= @results[:reviews][:results].count %> Reviews</h4>
+<% @results[:reviews][:results].each do |review| %>
+  <p>Author: <%= review[:author_details][:username]%></p>
+  <p><%= review[:content] %></p>
+<% end %>
