@@ -3,15 +3,11 @@
 </center>
 
 <section id='title'>
+<span>
 <h1><%= @results[:details][:title] %></h1>
-<div id='new-party'>
-  <%= button_to 'Create Viewing Party for Movie', '/viewing-party/new', method: :get, 
-    params: { title: @results[:details][:title],
-            runtime: @results[:details][:runtime],
-            logo: @results[:details][:poster_path],
-            movie_id: params[:movie_id]}%>
-</div>
+</span>
 </section>
+        <img src="https://image.tmdb.org/t/p/w500/<%= @results[:details][:poster_path] %>" alt="">
 <div class='movie-stats'>
 <section id='vote-average'>
 <p>Vote Average: <%= @results[:details][:vote_average] %></p>
@@ -27,6 +23,16 @@
 <% end %>
 </p>
 </section>
+    <div id='new-party'>
+    <span>
+      <%= button_to 'Create Viewing Party for Movie', '/viewing-party/new', method: :get, 
+        params: { title: @results[:details][:title],
+                runtime: @results[:details][:runtime],
+                logo: @results[:details][:poster_path],
+                movie_id: params[:movie_id]}%>
+    
+    </span>
+    </div>
 </div>
 
 <hr>
@@ -34,6 +40,7 @@
 <h3>Summary</h3>
 <p><%= @results[:details][:overview] %></p>
 </section>
+<hr>
 
 <section>
   <h3>Cast</h3>
@@ -53,7 +60,8 @@
   <% end%>
 </div>
 </div>
-</section><br>
+</section>
+<hr>
 
 <section id='review'>
 <h3><%= @results[:reviews][:results].count %> Reviews</h3>
@@ -62,3 +70,4 @@
   <p><%= review[:content] %></p>
 <% end %>
 </section>
+<hr>

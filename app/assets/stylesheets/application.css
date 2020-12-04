@@ -169,22 +169,33 @@ section {
 .movie-stats {
   display: flex;
   width: 100%;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
 }
 
 #title {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#new-party {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-/* .new-party:form{
+#new-party form{
+  margin-right: auto;
+  
+  align-content: flex-start;
+  padding: 5px;
+  width: 100%;
+  bottom: 0;
+}
+#new-party img{
+  margin-left: auto;
+  align-content: flex-end;
+  padding: 5px;
   width: 33%;
-} */
-
-/* #title:form{
-  width: 33%;
-} */
-
-.new-party {
-  float: right;
-  width: 33%;
-  font-size: 12pt;
 }
