@@ -1,0 +1,192 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/761053?api_key=API_Key&language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 04 Dec 2020 00:04:56 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=21600
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 695021ffea95f6546d373930b913d56b7dd13988
+      X-Memc-Age:
+      - '17292'
+      X-Memc-Expires:
+      - '4308'
+      Etag:
+      - W/"bd778a6e7ff972e0aa93183b35fad5a4"
+      Last-Modified:
+      - Fri, 04 Dec 2020 00:04:56 GMT
+      Vary:
+      - Accept-Encoding
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 059ffa1366014739c490064f7ef210b5.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - i7iLxgP4fnXjcG5sgEMjLvA0u4XGm-MCk1JjWjcFTOjFFNMYmH9UKA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"adult":false,"backdrop_path":"/fQq1FWp1rC89xDrRMuyFJdFUdMd.jpg","belongs_to_collection":{"id":729322,"name":"Gabriel''s
+        Inferno Collection","poster_path":"/hHTzveTImCWuQfpTNiB5yGZOo7e.jpg","backdrop_path":"/hXF55codODfnzTZDExbUbfFmA9y.jpg"},"budget":0,"genres":[],"homepage":"","id":761053,"imdb_id":null,"original_language":"en","original_title":"Gabriel''s
+        Inferno Part III","overview":"The final part of the film adaption of the erotic
+        romance novel Gabriel''s Inferno written by an anonymous Canadian author under
+        the pen name Sylvain Reynard.","popularity":37.015,"poster_path":"/qtX2Fg9MTmrbgN1UUvGoCsImTM8.jpg","production_companies":[{"id":92153,"logo_path":"/psjvYkjjgAPtS8utnFYDM8t8yi7.png","name":"PassionFlix","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
+        States of America"}],"release_date":"2020-11-19","revenue":0,"runtime":0,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"","title":"Gabriel''s
+        Inferno Part III","video":false,"vote_average":9.3,"vote_count":449}'
+  recorded_at: Fri, 04 Dec 2020 00:04:56 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/761053/credits?api_key=API_Key&language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '33'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 04 Dec 2020 00:04:56 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=21600
+      X-Memc:
+      - HIT
+      X-Memc-Key:
+      - 50e894e75aff4dbdac1f2057bd88a03916452e43
+      X-Memc-Age:
+      - '5510'
+      X-Memc-Expires:
+      - '16090'
+      Etag:
+      - W/"b16818495dc77dc7cc8d921f3105b2ff"
+      Last-Modified:
+      - Fri, 04 Dec 2020 00:04:56 GMT
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 50e5d5267caad4bbba42e8e11cdd9961.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - 3u9w9ehZ3ZB29lDpaH-8enRqE0wHA3ZjYcC5WZqbihnNLdwf2j-TaA==
+    body:
+      encoding: UTF-8
+      string: '{"id":761053,"cast":[],"crew":[]}'
+  recorded_at: Fri, 04 Dec 2020 00:04:56 GMT
+- request:
+    method: get
+    uri: https://api.themoviedb.org/3/movie/761053/reviews?api_key=API_Key&language=en-US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '69'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 04 Dec 2020 00:04:57 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=21600
+      X-Memc:
+      - MISS, STORE
+      X-Memc-Key:
+      - 28d24fd745b810f24e2d0889fb7679c5e1c15702
+      X-Memc-Age:
+      - '0'
+      X-Memc-Expires:
+      - '21600'
+      Last-Modified:
+      - '2020-11-22 16:39:36 +0000'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 059ffa1366014739c490064f7ef210b5.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - qdGpVE_4ovke0cHe_inajALUqdIqWDsi-kdZEd83Q1zEsl4SAnBJAw==
+    body:
+      encoding: UTF-8
+      string: '{"id":761053,"page":1,"results":[],"total_pages":0,"total_results":0}'
+  recorded_at: Fri, 04 Dec 2020 00:04:57 GMT
+recorded_with: VCR 6.0.0

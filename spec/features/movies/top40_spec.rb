@@ -36,7 +36,9 @@ RSpec.describe "Top 40 movies page" do
     it "When I click on a movies link, I am taken to its show page" do
       visit '/movies/top40'
       within first('.title') do
-        click_link
+        VCR.use_cassette('movie_details') do
+          click_link
+        end
       end
     end
 
