@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get 'movies/top40', to: 'movies#top40'
   get 'movies/search', to: 'movies#search'
-  resources :movies, only: %i[show]
+  resources :movies, only: %i[show], param: :movie_id
 
   post '/friendship/create', to: 'friendships#create'
 end
