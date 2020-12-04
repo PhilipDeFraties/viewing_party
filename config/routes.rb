@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   resources :movies, only: %i[show], param: :movie_id
 
   post '/friendship/create', to: 'friendships#create'
+
+  get '/viewing-party/new', to: 'parties#new'
 end
