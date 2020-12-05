@@ -3,6 +3,6 @@ FactoryBot.define do
     title { Faker::Movie.title }
     runtime  { 90 }
     api_id { 123456 }
-    logo { Faker::LoremFlickr.image(size: "50x60") }
+    logo { "/astKJpagcTTqybiAZ6qpakVqmow.jpg" }
   end
 end

@@ -4,11 +4,21 @@ Rails.application.routes.draw do
 
   post "/login", to: "sessions#create"
 
+  get :register, to: 'users#new'
+
+  resources :users, only: [:create]
+
   namespace :user do
     get '/dashboard', to: 'dashboard#show'
   end
 
-  get '/discover', to: 'movies#search'
+  get '/discover', to: 'discover#index'
+
+  get 'movies/top40', to: 'movies#top40'
+  get 'movies/search', to: 'movies#search'
+  resources :movies, only: %i[show], param: :movie_id
 
   post '/friendship/create', to: 'friendships#create'
+
+  get '/viewing-party/new', to: 'parties#new'
 end

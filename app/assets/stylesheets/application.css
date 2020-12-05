@@ -18,10 +18,13 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  color: white;
+  background-color: rgb(32, 32, 32);
 }
 
 main {
   flex: 1;
+  background-color: rgb(32, 32, 32);
 }
 
 footer {
@@ -32,6 +35,16 @@ footer {
 
 
 input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=password], select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -57,7 +70,7 @@ input[type=submit]:hover {
 }
 form {
   align-content: center;
-  background-color: #f2f2f2;
+  background-color: rgb(64, 64, 64);
   padding: 20px;
   width: 60%;
 }
@@ -77,4 +90,112 @@ form {
   padding: 10px;
   background-color: green;
   color: white;
+}
+
+.grid-container{
+ 	display: grid;
+ 	grid-template-columns: repeat(5,1fr);
+ 	grid-template-rows: auto;
+ 	grid-gap: 30px;
+ }
+
+ .grid-party{
+ 	background-color: #17BEBB;
+ 	padding: 20px;
+  border: solid;
+ 	border-radius: 12px;
+  border-color: #002244;
+ 	text-align: center
+ }
+ .party-show-grid{
+  width: 60%;
+ 	display: grid;
+  border: solid;
+  border-radius: 12px;
+ 	grid-template-columns: repeat(2,1fr);
+ }
+
+ .party-show-party{
+ 	padding: 20px;
+ 	text-align: right;
+ }
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #f2f2f2;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: rgb(64, 64, 64);
+}
+
+a:link{
+  color: white;
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+a:visited{
+  color: rgb(243, 156, 243);
+  text-decoration: underline;
+}
+
+#cast {
+  column-count: 2;
+  display: table;
+  align-items: center;
+  width: 100%;
+}
+
+.cast-col {
+  display: table-cell;
+  text-align: left;
+}
+
+section {
+  padding: 15px;
+}
+
+.movie-stats {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+}
+
+#title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#new-party {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#new-party form{
+  margin-right: auto;
+  
+  align-content: flex-start;
+  padding: 5px;
+  width: 100%;
+  bottom: 0;
+}
+#new-party img{
+  margin-left: auto;
+  align-content: flex-end;
+  padding: 5px;
+  width: 33%;
 }
