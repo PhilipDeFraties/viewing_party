@@ -12,10 +12,4 @@ class ApplicationController < ActionController::Base
     flash[:error] = 'Please login.'
     redirect_to root_path
   end
-
-  def generate_flash(resource)
-    resource.errors.messages.each do |validation, message|
-      flash[validation] = "#{validation}: #{message}"
-    end
-  end
 end
