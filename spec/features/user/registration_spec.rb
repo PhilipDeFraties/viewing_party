@@ -25,7 +25,6 @@ RSpec.describe 'User Registration' do
     describe 'I can not register as a user if' do
       it 'I do not complete the registration form' do
         visit register_path
-
         click_button 'Register'
 
         expect(page).to have_button('Register')
@@ -88,7 +87,6 @@ RSpec.describe 'User Registration' do
       end
 
       it "I can see a message telling me I'm already registered" do
-
         expect(page).to have_content("You are already registerd.")
         expect(page).to_not have_button('Register')
         expect(current_path).to eq('/user/dashboard')
