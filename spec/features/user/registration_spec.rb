@@ -27,10 +27,10 @@ RSpec.describe 'User Registration' do
       it 'I do not complete the registration form' do
         visit register_path
 
-        fill_in 'user[username]', with: 'Megan'
         click_button 'Register'
 
         expect(page).to have_button('Register')
+        expect(page).to have_content("username: [\"can't be blank\"]")
         expect(page).to have_content("email: [\"can't be blank\"]")
         expect(page).to have_content("password: [\"can't be blank\"")
       end
