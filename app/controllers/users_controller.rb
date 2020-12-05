@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def new
-    if !current_user.nil?
+    if current_user
       flash[:notice] = 'You are already registerd.'
       redirect_to '/user/dashboard'
     else
