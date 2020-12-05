@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Welcome, #{@user.username}!"
       redirect_to '/user/dashboard'
     else
-      generate_flash(@user)
+      flash[:error] = @user.errors.full_messages.to_sentence
       render :new
     end
   end
