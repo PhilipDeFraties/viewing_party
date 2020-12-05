@@ -1,24 +1,24 @@
-<%= form_with url: '/viewing-party', model: @party, local: true do |f| %>
-  
-  
-  <%= f.label :duration %>
-  <%= f.text_field :duration %>
+<%= form_with url: '/viewing-party', local: true do |f| %>
 
-  <%= f.label :date %>
-    <p>Using Format MM-DD-YYYY</p>
-  <%= f.text_field :date %>
+<%= f.label :movie_title %>
+<%= f.text_field :movie_title, value: params[:title], :readonly => true %>
 
-  <%= f.label :time %>
-  <%= f.text_field :time %>
+<%= f.hidden_field :runtime, :value => params[:runtime] %>
 
-  <% current_user.friends.each do |friend| %>
-  
-    <%= f.label :friend_name, "#{friend.username}" %>
-    <%= f.check_box "#{friend.username}" %>
-    <%= f.hidden_field :friend_id, :value => friend.id %>
-  <% end %>
+<%= f.hidden_field :api_id, :value => params[:api_id] %>
 
-  
+<%= f.hidden_field :logo, :value => params[:logo] %>
 
-  <%= f.submit %>
+<%= f.label :duration %>
+<%= f.text_field :duration, value: params[:runtime] %>
+
+<%= f.label :date %>
+<%= f.date_field :date %><br><br>
+
+<%= f.label :time %>
+<%= f.time_field :time %><br><br>
+
+<%= f.collection_check_boxes :party_guests, current_user.friends, :id, :username %>
+
+<%= f.submit %>
 <% end %>
