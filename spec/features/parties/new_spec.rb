@@ -14,20 +14,34 @@ RSpec.describe "New party page" do
       click_button 'Login'
     end
 
-    it "I can create a new viewing party" do
+    it "I can create a new viewing party where the movie is not in the database" do
       VCR.use_cassette('parasite_details') do
         visit '/movies/291545'
         click_on 'Create Viewing Party for Movie'
         expect(current_path).to eq('/viewing-party/new')
-        expect(page).to have_css('#title')
-        expect(page).to have_css('#duration')
-        expect(page).to have_css('#date')
-        expect(page).to have_css('#time')
-        expect(page).to have_css('#friends')
-        expect(page).to have_content('Parasite')
-        expect(page).to have_content('93')
-        expect(page).to have_content("#{@user_2.username}")
-        expect(page).to have_button('Create Party')
+        fill_in :duration, with: '180'
+        fill_in :date, with: '1/21/2021'
+        fill_in :time, with: '08:00 PM'
+        find(:css, "#party_guests_#{@user_2.id}[value='#{@user_2.id}']").set(true)
+        click_on 'Save'
+        expect(current_path).to eq('/user/dashboard')
+        party = Party.last
+        expect(party.party_guests.first.user_id).to eq(@user_2.id)
+      end
+    end
+
+    it "I can create a new viewing party where the movie is already in the database" do
+      @movie = Movie.create!(api_id: 291545)
+      VCR.use_cassette('parasite_details') do
+        visit '/movies/291545'
+        click_on 'Create Viewing Party for Movie'
+        expect(current_path).to eq('/viewing-party/new')
+        fill_in :duration, with: '180'
+        fill_in :date, with: '1/21/2021'
+        fill_in :time, with: '08:00 PM'
+        find(:css, "#party_guests_#{@user_2.id}[value='#{@user_2.id}']").set(true)
+        click_on 'Save'
+        expect(Movie.all.count).to eq(1)
       end
     end
   end
