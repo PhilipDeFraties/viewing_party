@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   post "/login", to: "sessions#create"
 
+  get :register, to: 'users#new'
+
+  resources :users, only: [:create]
+
   namespace :user do
     get '/dashboard', to: 'dashboard#show'
   end
