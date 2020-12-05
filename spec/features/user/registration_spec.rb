@@ -4,7 +4,6 @@ RSpec.describe 'User Registration' do
   describe 'As a Visitor' do
     it "I can click link to register, and am taken to the register page" do
       visit root_path
-      save_and_open_page
       click_button "Register"
 
       expect(current_path).to eq("/register")
@@ -30,9 +29,9 @@ RSpec.describe 'User Registration' do
         click_button 'Register'
 
         expect(page).to have_button('Register')
-        expect(page).to have_content("username: [\"can't be blank\"]")
-        expect(page).to have_content("email: [\"can't be blank\"]")
-        expect(page).to have_content("password: [\"can't be blank\"")
+        expect(page).to have_content("Password can't be blank")
+        expect(page).to have_content("Username can't be blank")
+        expect(page).to have_content("Email can't be blank")
       end
 
       it "My password and password confirmation does not match" do
@@ -45,6 +44,7 @@ RSpec.describe 'User Registration' do
         click_button 'Register'
 
         expect(page).to have_button('Register')
+        expect(page).to have_content("Password confirmation doesn't match Password")
       end
 
       it 'I use a non-unique email' do
@@ -59,7 +59,7 @@ RSpec.describe 'User Registration' do
         click_button 'Register'
 
         expect(page).to have_button('Register')
-        expect(page).to have_content("email: [\"has already been taken\"]")
+        expect(page).to have_content("Email has already been taken")
       end
 
       it 'I use a non-unique username' do
@@ -74,7 +74,7 @@ RSpec.describe 'User Registration' do
         click_button 'Register'
 
         expect(page).to have_button('Register')
-        expect(page).to have_content("username: [\"has already been taken\"]")
+        expect(page).to have_content("Username has already been taken")
       end
     end
   end
@@ -88,10 +88,9 @@ RSpec.describe 'User Registration' do
       end
 
       it "I can see a message telling me I'm already registered" do
+
         expect(page).to have_content("You are already registerd.")
         expect(page).to_not have_button('Register')
-        expect(page).to_not have_content("email: [\"can't be blank\"]")
-        expect(page).to_not have_content("password: [\"can't be blank\"")
         expect(current_path).to eq('/user/dashboard')
       end
     end
