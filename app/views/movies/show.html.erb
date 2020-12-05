@@ -1,0 +1,73 @@
+<center>
+<h1>Welcome <%= current_user.username %>!</h1>
+</center>
+
+<section id='title'>
+<span>
+<h1><%= @results[:details][:title] %></h1>
+</span>
+</section>
+        <img src="https://image.tmdb.org/t/p/w500/<%= @results[:details][:poster_path] %>" alt="">
+<div class='movie-stats'>
+<section id='vote-average'>
+<p>Vote Average: <%= @results[:details][:vote_average] %></p>
+</section>
+
+<section id='runtime'>
+<p>Runtime: <%= @results[:details][:runtime] / 60 %>hrs <%= @results[:details][:runtime] % 60 %>mins</p>
+</section>
+
+<section id='genre'>
+<p>Genre(s): <% @results[:details][:genres].each do |genre| %>
+  <%= genre[:name] %>,
+<% end %>
+</p>
+</section>
+    <div id='new-party'>
+    <span>
+      <%= button_to 'Create Viewing Party for Movie', '/viewing-party/new', method: :get, 
+        params: { title: @results[:details][:title],
+                runtime: @results[:details][:runtime],
+                logo: @results[:details][:poster_path],
+                movie_id: params[:movie_id]}%>
+    
+    </span>
+    </div>
+</div>
+
+<hr>
+<section id='description'>
+<h3>Summary</h3>
+<p><%= @results[:details][:overview] %></p>
+</section>
+<hr>
+
+<section>
+  <h3>Cast</h3>
+  <% if @results[:cast][:cast].empty? %>
+    <p>There is no cast for this movie.</p>
+  <% else %>
+    <div id='cast'>
+    <div class='cast-col'>
+    <% @results[:cast][:cast][0..4].each do |member| %>
+    <p><%= member[:name] %> as <%= member[:character] %></p>
+    <% end %>
+  </div>
+  <div class='cast-col'>
+    <% @results[:cast][:cast][5..9].each do |member| %>
+    <p><%= member[:name] %> as <%= member[:character] %></p>
+    <% end %>
+  <% end%>
+</div>
+</div>
+</section>
+<hr>
+
+<section id='review'>
+<h3><%= @results[:reviews][:results].count %> Reviews</h3>
+<% @results[:reviews][:results].each do |review| %>
+  <h4>Author: <%= review[:author_details][:username]%></h4>
+  <p><%= review[:content] %></p>
+<% end %>
+</section>
+<hr>

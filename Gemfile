@@ -38,6 +38,8 @@ group :test do
   gem 'shoulda-matchers'
   gem 'launchy'
   gem 'simplecov'
+  gem 'webmock'
+  gem 'vcr'
   gem "nyan-cat-formatter"
 end
 
