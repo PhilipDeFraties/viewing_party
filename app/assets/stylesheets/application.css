@@ -19,6 +19,7 @@ body {
   min-height: 100vh;
   flex-direction: column;
   color: white;
+  font-family: Arial, Helvetica, sans-serif;
   background-color: rgb(32, 32, 32);
 }
 
@@ -40,7 +41,7 @@ input[type=text], select {
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 20px;
   box-sizing: border-box;
 }
 
@@ -50,7 +51,7 @@ input[type=password], select {
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 20px;
   box-sizing: border-box;
 }
 
@@ -61,16 +62,15 @@ input[type=submit] {
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
   cursor: pointer;
 }
 
 input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: #096c6a;
 }
 form {
   align-content: center;
-  background-color: rgb(64, 64, 64);
   padding: 20px;
   width: 60%;
 }
@@ -199,3 +199,23 @@ section {
   padding: 5px;
   width: 33%;
 }
+
+.topnav {
+   overflow: hidden;
+   background-color: #17BEBB;
+   border-radius: 20px;
+ }
+
+ .topnav a {
+   float: left;
+   color: #f2f2f2;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+   font-size: 17px;
+ }
+
+ .topnav a:hover {
+   background-color: #096c6a;
+   color: black;
+ }
