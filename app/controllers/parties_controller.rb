@@ -4,18 +4,15 @@ class PartiesController < ApplicationController
   end
 
   def create
-    if Movie.find_by(api_id: params[:api_id])
-      movie = Movie.find_by(api_id: params[:api_id])
-    else
-      movie = Movie.create!(movie_params)
-    end
+    add_movie(params[:api_id])
     @party = current_user.parties.new(
       date: params[:date],
       time: params[:time],
       duration: params[:duration],
-      movie_id: movie.id)
+      movie_id: @movie.id
+    )
     if @party.save
-      invite_friends(params[:party_guests])
+      @party.invite_friends(params[:party_guests])
       flash[:success] = 'Your Viewing Party was created!'
       redirect_to '/user/dashboard'
     else
@@ -24,9 +21,11 @@ class PartiesController < ApplicationController
     end
   end
 
-  def invite_friends(party_guests)
-    party_guests.each do |guest|
-      @party.party_guests.create(user_id: guest.to_i)
+  def add_movie(api_id)
+    if Movie.find_by(api_id: api_id)
+      @movie = Movie.find_by(api_id: api_id)
+    else
+      @movie = Movie.create!(movie_params)
     end
   end
 
