@@ -4,7 +4,6 @@ RSpec.describe 'User Registration' do
   describe 'As a Visitor' do
     it "I can click link to register, and am taken to the register page" do
       visit root_path
-      save_and_open_page
       click_button "Register"
 
       expect(current_path).to eq("/register")
