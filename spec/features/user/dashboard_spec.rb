@@ -113,11 +113,5 @@ RSpec.describe 'Dashboard Page' do
         expect(page).to have_content("No Parties Scheduled")
       end
     end
-
-    it "I see a button to edit my profile, which takes me to an edit form" do
-      expect(page).to have_link('Edit Profile')
-      click_link 'Edit Profile'
-      expect(current_path).to eq("/users/#{@user_1.id}/edit")
-    end
   end
 end
