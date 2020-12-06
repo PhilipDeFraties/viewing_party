@@ -6,7 +6,6 @@ RSpec.describe 'User edit' do
       @user_1 = create :user
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
     end
-
     
   end
 end

@@ -21,7 +21,7 @@ RSpec.describe "Welcome Page" do
       fill_in :email, with: @user_1.email
       fill_in :password, with: @user_1.password
       click_button 'Login'
-      expect(current_path).to eq('/user/dashboard')
+      expect(current_path).to eq(dashboard_path)
     end
 
     it "a button to register as a user that takes me to a registration form" do
@@ -33,7 +33,7 @@ RSpec.describe "Welcome Page" do
       it "I am redirected to my user dashboard" do
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
         visit root_path
-        expect(current_path).to eq('/user/dashboard')
+        expect(current_path).to eq(dashboard_path)
       end
     end
   end

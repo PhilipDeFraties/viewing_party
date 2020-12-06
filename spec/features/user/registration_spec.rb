@@ -11,7 +11,7 @@ RSpec.describe 'User Registration' do
       fill_in 'user[password_confirmation]', with: 'securepassword'
       click_button 'Register'
 
-      expect(current_path).to eq('/user/dashboard')
+      expect(current_path).to eq(dashboard_path)
       expect(page).to have_content('Welcome, Megan!')
     end
 
@@ -73,15 +73,14 @@ RSpec.describe 'User Registration' do
 
   describe 'As an authenticated user' do
     describe "When I visit the register page" do
-      before :each do
-        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
-        visit register_path
-      end
-
       it "I can see a message telling me I'm already registered" do
+        user = create :user
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+        visit register_path
+
         expect(page).to have_content("You are already registerd.")
         expect(page).to_not have_button('Register')
-        expect(current_path).to eq('/user/dashboard')
+        expect(current_path).to eq(dashboard_path)
       end
     end
   end

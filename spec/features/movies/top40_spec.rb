@@ -2,20 +2,17 @@ require 'rails_helper'
 
 RSpec.describe "Top 40 movies page" do
   describe "As a registered user, when I visit /movies/top40" do
-    before :each do 
+    before :each do
       @user_1 = create :user
-
-      visit '/'
-      fill_in :email, with: @user_1.email
-      fill_in :password, with: @user_1.password
-      click_button 'Login'
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
+      visit dashboard_path
       VCR.insert_cassette('top_40')
     end
 
     after :each do
       VCR.eject_cassette('top_40')
     end
-    
+
     it "I see the top 40 movies in a table" do
       visit '/movies/top40'
       within('#movies-table') do
