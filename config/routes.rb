@@ -6,11 +6,9 @@ Rails.application.routes.draw do
 
   get :register, to: 'users#new'
 
-  resources :users, only: [:create]
+  resources :users, only: [:create, :edit]
 
-  namespace :user do
-    get '/dashboard', to: 'dashboard#show'
-  end
+  get :dashboard, to: 'dashboard#show'
 
   get '/discover', to: 'discover#index'
 
