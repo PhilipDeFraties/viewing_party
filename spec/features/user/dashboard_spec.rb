@@ -17,6 +17,7 @@ RSpec.describe 'Dashboard Page' do
       PartyGuest.create!(user_id: @user_1.id, party_id: @party_4.id)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
+      visit dashboard_path
     end
 
     it 'I see a welcome message' do
@@ -46,7 +47,7 @@ RSpec.describe 'Dashboard Page' do
             fill_in :friends_email, with: @user_2.email
             click_button 'Add Friend'
           end
-          expect(current_path).to eq('/user/dashboard')
+          expect(current_path).to eq(dashboard_path)
           within '#friends' do
             expect(page).to have_content(@user_2.username)
           end
@@ -61,7 +62,7 @@ RSpec.describe 'Dashboard Page' do
           fill_in :friends_email, with: 'email@fake.com'
           click_button 'Add Friend'
         end
-        expect(current_path).to eq('/user/dashboard')
+        expect(current_path).to eq(dashboard_path)
         expect(page).to have_content('User does not exist.')
       end
     end
@@ -72,7 +73,7 @@ RSpec.describe 'Dashboard Page' do
           fill_in :friends_email, with: "#{@user_1.email}"
           click_button 'Add Friend'
         end
-        expect(current_path).to eq('/user/dashboard')
+        expect(current_path).to eq(dashboard_path)
         expect(page).to have_content('You cannot add yourself as a friend.')
       end
     end
@@ -106,7 +107,7 @@ RSpec.describe 'Dashboard Page' do
     it "If there are no scheduled parties, I see a message" do
       PartyGuest.delete_all
       Party.delete_all
-      visit '/user/dashboard'
+      visit dashboard_path
 
       within "#parties" do
         expect(page).to have_content("No Parties Scheduled")
@@ -114,11 +115,9 @@ RSpec.describe 'Dashboard Page' do
     end
 
     it "I see a button to edit my profile, which takes me to an edit form" do
-      visit '/'
-      expect(current_path).to eq('/user/dashboard')
       expect(page).to have_link('Edit Profile')
       click_link 'Edit Profile'
-      expect(current_path).to eq("/users/#{current_user.id}/edit")
+      expect(current_path).to eq("/users/#{@user_1.id}/edit")
     end
   end
 end
