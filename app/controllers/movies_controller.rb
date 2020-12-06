@@ -32,5 +32,6 @@ class MoviesController < ApplicationController
     response = conn.get
     json = JSON.parse(response.body, symbolize_names: true)
     @results = json[:results]
+    flash[:error] = 'No movies matched your search.' if @results.empty?
   end
 end
