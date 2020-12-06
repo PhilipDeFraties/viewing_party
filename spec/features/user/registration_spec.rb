@@ -2,13 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'User Registration' do
   describe 'As a Visitor' do
-    it "I can click link to register, and am taken to the register page" do
-      visit root_path
-      click_button "Register"
-
-      expect(current_path).to eq("/register")
-    end
-
     it 'I can register as a user' do
       visit register_path
 
@@ -81,7 +74,6 @@ RSpec.describe 'User Registration' do
   describe 'As an authenticated user' do
     describe "When I visit the register page" do
       before :each do
-        @user_1 = create :user
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
         visit register_path
       end
