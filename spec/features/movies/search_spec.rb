@@ -1,7 +1,7 @@
 require 'rails_helper'
 RSpec.describe "Movie Search Results page" do
   describe "As a registered user, when I visit the discover page and fill in the form" do
-    before :each do 
+    before :each do
       @user_1 = create :user
       visit '/'
       fill_in :email, with: @user_1.email
@@ -61,4 +61,17 @@ RSpec.describe "Movie Search Results page" do
       end
     end
   end
-end 
+end
+
+feature 'User searches for a movie via keyword search' do
+  scenario "User search yields no results", :vcr do
+    @user_1 = create :user
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
+    visit '/discover'
+    fill_in :search, with: '55555555'
+    click_on 'Find Movies'
+
+    expect(current_path).to eq('/movies/search')
+    expect(page).to have_content('No movies matched your search.')
+  end
+end
