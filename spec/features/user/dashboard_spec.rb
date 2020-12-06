@@ -16,10 +16,7 @@ RSpec.describe 'Dashboard Page' do
       PartyGuest.create!(user_id: @user_1.id, party_id: @party_2.id)
       PartyGuest.create!(user_id: @user_1.id, party_id: @party_4.id)
 
-      visit '/'
-      fill_in :email, with: @user_1.email
-      fill_in :password, with: @user_1.password
-      click_button 'Login'
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
     end
 
     it 'I see a welcome message' do
@@ -114,6 +111,14 @@ RSpec.describe 'Dashboard Page' do
       within "#parties" do
         expect(page).to have_content("No Parties Scheduled")
       end
+    end
+
+    it "I see a button to edit my profile, which takes me to an edit form" do
+      visit '/'
+      expect(current_path).to eq('/user/dashboard')
+      expect(page).to have_link('Edit Profile')
+      click_link 'Edit Profile'
+      expect(current_path).to eq("/users/#{current_user.id}/edit")
     end
   end
 end
