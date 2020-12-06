@@ -1,9 +1,17 @@
 class Party < ApplicationRecord
   belongs_to :user
   belongs_to :movie
+  belongs_to :date
   has_many :party_guests, dependent: :destroy
   has_many :users, through: :party_guests
-  # validates_length_of :date, :is => 10
+  validates_presence_of :user_id
+  validates_presence_of :time
+  validates :duration, numericality: { greater_than: 0 }
+  # validates :date, presence: true, if: :date_valid
+  
+  # def date_valid
+  #   (date.to_date >= Date.today || date.to_date < "01/01/2025".to_date) ? true : false
+  # end
 
   def user_status(user_id)
     if self.user_id == user_id
