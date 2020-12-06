@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       flash[:success] = 'You are now logged in'
     else
       flash[:error] = 'Email and/or password is incorrect'
-      redirect_to '/'
+      redirect_to root_path
     end
   end
 end
