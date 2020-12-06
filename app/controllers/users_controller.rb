@@ -20,9 +20,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   private
 
   def user_params
