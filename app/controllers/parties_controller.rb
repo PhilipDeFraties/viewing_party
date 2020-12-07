@@ -14,7 +14,7 @@ class PartiesController < ApplicationController
     if @party.save
       @party.invite_friends(params[:party_guests])
       flash[:success] = 'Your Viewing Party was created!'
-      redirect_to '/user/dashboard'
+      redirect_to user_dashboard_path
     else
       flash[:error] = @party.errors.full_messages.to_sentence
       render :new
