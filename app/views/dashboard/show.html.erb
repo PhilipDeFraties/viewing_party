@@ -1,7 +1,8 @@
 <center>
 <section id="welcome-msg">
 <h1>Welcome <%= current_user.username %>!</h1>
-</section>
+<%= link_to 'Edit Profile', "/users/#{current_user.id}/edit"%>
+
 
 
 <section id="discover-button">
