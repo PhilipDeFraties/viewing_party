@@ -119,5 +119,11 @@ RSpec.describe 'Dashboard Page' do
       click_link 'Edit Profile'
       expect(current_path).to eq("/users/#{@user_1.id}/edit")
     end
+
+    it "I see a button to change my password, which takes me to a form" do
+      expect(page).to have_link('Change Password')
+      click_link 'Change Password'
+      expect(current_path).to eq("/users/#{@user_1.id}/edit_password")
+    end
   end
 end
