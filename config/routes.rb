@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   post '/friendship/create', to: 'friendships#create'
 
   get '/viewing-party/new', to: 'parties#new'
+  post '/viewing-party', to: 'parties#create'
 end
