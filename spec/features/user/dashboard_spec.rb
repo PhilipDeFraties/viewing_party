@@ -9,17 +9,15 @@ RSpec.describe 'Dashboard Page' do
       @movie_2 = create :movie
       @movie_3 = create :movie
       @movie_4 = create :movie
-      @party_1 = Party.create!(user_id: @user_1.id, movie_id: @movie_1.id, date: '12-24-2020', time: '9:30')
-      @party_2 = Party.create!(user_id: @user_2.id, movie_id: @movie_2.id, date: '12-19-2020', time: '4:30')
-      @party_3 = Party.create!(user_id: @user_1.id, movie_id: @movie_3.id, date: '12-20-2020', time: '5:30')
-      @party_4 = Party.create!(user_id: @user_2.id, movie_id: @movie_4.id, date: '12-21-2020', time: '6:30')
+      @party_1 = Party.create!(user_id: @user_1.id, movie_id: @movie_1.id, date: '12-24-2020', time: '9:30', duration: 142)
+      @party_2 = Party.create!(user_id: @user_2.id, movie_id: @movie_2.id, date: '12-19-2020', time: '4:30', duration: 120)
+      @party_3 = Party.create!(user_id: @user_1.id, movie_id: @movie_3.id, date: '12-20-2020', time: '5:30', duration: 160)
+      @party_4 = Party.create!(user_id: @user_2.id, movie_id: @movie_4.id, date: '12-21-2020', time: '6:30', duration: 200)
       PartyGuest.create!(user_id: @user_1.id, party_id: @party_2.id)
       PartyGuest.create!(user_id: @user_1.id, party_id: @party_4.id)
 
-      visit '/'
-      fill_in :email, with: @user_1.email
-      fill_in :password, with: @user_1.password
-      click_button 'Login'
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
+      visit dashboard_path
     end
 
     it 'I see a welcome message' do
@@ -49,7 +47,7 @@ RSpec.describe 'Dashboard Page' do
             fill_in :friends_email, with: @user_2.email
             click_button 'Add Friend'
           end
-          expect(current_path).to eq('/user/dashboard')
+          expect(current_path).to eq(dashboard_path)
           within '#friends' do
             expect(page).to have_content(@user_2.username)
           end
@@ -64,7 +62,7 @@ RSpec.describe 'Dashboard Page' do
           fill_in :friends_email, with: 'email@fake.com'
           click_button 'Add Friend'
         end
-        expect(current_path).to eq('/user/dashboard')
+        expect(current_path).to eq(dashboard_path)
         expect(page).to have_content('User does not exist.')
       end
     end
@@ -75,7 +73,7 @@ RSpec.describe 'Dashboard Page' do
           fill_in :friends_email, with: "#{@user_1.email}"
           click_button 'Add Friend'
         end
-        expect(current_path).to eq('/user/dashboard')
+        expect(current_path).to eq(dashboard_path)
         expect(page).to have_content('You cannot add yourself as a friend.')
       end
     end
@@ -109,11 +107,17 @@ RSpec.describe 'Dashboard Page' do
     it "If there are no scheduled parties, I see a message" do
       PartyGuest.delete_all
       Party.delete_all
-      visit '/user/dashboard'
+      visit dashboard_path
 
       within "#parties" do
         expect(page).to have_content("No Parties Scheduled")
       end
+    end
+
+    it "I see a button to edit my profile, which takes me to an edit form" do
+      expect(page).to have_link('Edit Profile')
+      click_link 'Edit Profile'
+      expect(current_path).to eq("/users/#{@user_1.id}/edit")
     end
   end
 end

@@ -1,7 +1,7 @@
 <%= form_with url: '/viewing-party', local: true do |f| %>
 
-<%= f.label :movie_title %>
-<%= f.text_field :movie_title, value: params[:title], :readonly => true %>
+<%= f.label :title %>
+<%= f.text_field :title, value: params[:title], :readonly => true %>
 
 <%= f.hidden_field :runtime, :value => params[:runtime] %>
 
