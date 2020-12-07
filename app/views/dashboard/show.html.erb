@@ -1,7 +1,8 @@
 <center>
 <section id="welcome-msg">
 <h1>Welcome <%= current_user.username %>!</h1>
-</section>
+<%= link_to 'Edit Profile', "/users/#{current_user.id}/edit"%>
+
 
 
 <section id="discover-button">
@@ -14,11 +15,23 @@
   <% if current_user.friends.empty? %>
     <p>You currently have no friends.</p>
   <% else %>
+  <table>
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+    </tr>
     <% current_user.friends.each do |friend| %>
-      <%= friend.username %>
-      <%= friend.email %>
+    <tr>
+      <td>
+        <p><%= friend.username %></p>
+      </td>
+      <td>
+        <p><%= friend.email %></p>
+      </td>
+    </tr>
     <% end %>
   <% end %>
+  </table>
 <hr>
 <section id="friends-search">
 <%= form_tag '/friendship/create', method: :post do %>

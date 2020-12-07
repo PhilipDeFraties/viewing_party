@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 
   post "/login", to: "sessions#create"
 
-  namespace :user do
-    get '/dashboard', to: 'dashboard#show'
-  end
+  get :register, to: 'users#new'
+
+  resources :users, only: [:create, :edit, :update]
+
+  get :dashboard, to: 'dashboard#show'
 
   get '/discover', to: 'discover#index'
 

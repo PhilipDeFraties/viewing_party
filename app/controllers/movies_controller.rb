@@ -11,8 +11,8 @@ class MoviesController < ApplicationController
     reviews_conn = Faraday.new("https://api.themoviedb.org/3/movie/#{params[:movie_id]}/reviews?api_key=#{ENV['THE_MOVIE_DB_API']}&language=en-US")
     reviews_response = reviews_conn.get
     reviews = JSON.parse(reviews_response.body, symbolize_names: true)
-    
-    @results = { :details => details, :cast => cast, :reviews => reviews}
+
+    @results = { details: details, cast: cast, reviews: reviews }
   end
 
   def top40
@@ -32,5 +32,6 @@ class MoviesController < ApplicationController
     response = conn.get
     json = JSON.parse(response.body, symbolize_names: true)
     @results = json[:results]
+    flash[:error] = 'No movies matched your search.' if @results.empty?
   end
 end
