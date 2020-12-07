@@ -8,6 +8,6 @@ class FriendshipsController < ApplicationController
     else
       flash[:error] = 'User does not exist.'
     end
-    redirect_to '/user/dashboard'
+    redirect_to dashboard_path
   end
 end

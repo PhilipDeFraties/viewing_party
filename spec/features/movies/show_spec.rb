@@ -1,9 +1,9 @@
 require 'rails_helper'
 RSpec.describe "Movie Details page" do
   describe "As a registered user, when I visit a movies detail page" do
-    before :each do 
+    before :each do
       @user_1 = create :user
-      visit '/'
+      visit root_path
       fill_in :email, with: @user_1.email
       fill_in :password, with: @user_1.password
       click_button 'Login'

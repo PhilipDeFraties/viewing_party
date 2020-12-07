@@ -3,7 +3,7 @@ RSpec.describe "Movie Search Results page" do
   describe "As a registered user, when I visit the discover page and fill in the form" do
     before :each do
       @user_1 = create :user
-      visit '/'
+      visit root_path
       fill_in :email, with: @user_1.email
       fill_in :password, with: @user_1.password
       click_button 'Login'

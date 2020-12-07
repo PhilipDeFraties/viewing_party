@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def new
     if current_user
       flash[:notice] = 'You are already registerd.'
-      redirect_to '/user/dashboard'
+      redirect_to dashboard_path
     else
       @user = User.new
     end
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Welcome, #{@user.username}!"
-      redirect_to '/user/dashboard'
+      redirect_to dashboard_path
     else
       flash[:error] = @user.errors.full_messages.to_sentence
       render :new

@@ -8,9 +8,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create]
 
-  namespace :user do
-    get '/dashboard', to: 'dashboard#show'
-  end
+  get :dashboard, to: 'dashboard#show'
 
   get '/discover', to: 'discover#index'
 
