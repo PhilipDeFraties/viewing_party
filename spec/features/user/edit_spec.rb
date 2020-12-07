@@ -29,14 +29,15 @@ RSpec.describe 'User edit' do
       end
     end
 
-    describe 'When I enter an email already in use' do
+    describe 'When I enter an email or username already in use' do
       it 'the page is refreshed and I see an error message' do
         user_2 = create :user
         fill_in 'user[email]', with: user_2.email
+        fill_in 'user[username]', with: user_2.username
         click_button 'Update Profile'
-
+        
         expect(current_path).to eq("/users/#{@user_1.id}/edit")
-        expect(page).to have_content('Email has already been taken')
+        expect(page).to have_content('Email has already been taken and Username has already been taken')
         expect(page).to have_field('user[username]', with: "#{@user_1.username}")
         expect(page).to have_field('user[email]', with: "#{@user_1.email}")
       end
