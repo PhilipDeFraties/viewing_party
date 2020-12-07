@@ -1,7 +1,6 @@
 class Party < ApplicationRecord
   belongs_to :user
   belongs_to :movie
-  belongs_to :date
   has_many :party_guests, dependent: :destroy
   has_many :users, through: :party_guests
   validates_presence_of :user_id
@@ -22,7 +21,7 @@ class Party < ApplicationRecord
   end
 
   def invite_friends(party_guests)
-    party_guests.reject! { |pg| pg.empty? }
+    party_guests.delete_at(0)
     party_guests.each do |guest|
       self.party_guests.create(user_id: guest.to_i)
     end
