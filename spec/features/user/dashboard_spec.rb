@@ -123,7 +123,7 @@ RSpec.describe 'Dashboard Page' do
     it "I see a button to change my password, which takes me to a form" do
       expect(page).to have_link('Change Password')
       click_link 'Change Password'
-      expect(current_path).to eq("/users/#{@user_1.id}/edit_password")
+      expect(current_path).to eq("/users/#{@user_1.id}/change_password")
     end
   end
 end
