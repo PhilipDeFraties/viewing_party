@@ -32,6 +32,19 @@ class UsersController < ApplicationController
 
   def edit; end
 
+  def change_password; end
+
+  def update_password
+    if current_user.update(user_params)
+      binding.
+      flash[:notice] = 'Password changed!'
+      redirect_to dashboard_path
+    else
+      flash[:error] = current_user.errors.full_messages.to_sentence
+      redirect_to :edit_user
+    end
+  end
+
   private
 
   def user_params
