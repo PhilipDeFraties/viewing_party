@@ -16,6 +16,10 @@ class User < ApplicationRecord
   has_many :parties, dependent: :destroy
 
   def find_parties
+    # array = []
+    # array << Party.where(id: PartyGuest.where(user_id: id).pluck(:party_id))
+    # array << parties
+    # array.flatten
     Party.where(user_id: id).or(Party.where(id: PartyGuest.where(user_id: id).pluck(:party_id)))
   end
 
