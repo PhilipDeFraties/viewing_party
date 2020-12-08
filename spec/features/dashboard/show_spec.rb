@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe 'Dashboard Page' do
+  describe 'As an unregistered user, when I visit the dashboard page' do
+    it 'I am redirected to the home page to log in' do
+      visit dashboard_path
+      expect(current_path).to eq(root_path)
+      expect(page).to have_content('Please login.')
+    end
+  end
+
   describe 'As an authenticated user, when I visit my dashboard page' do
     before(:each) do
       @user_1 = create :user

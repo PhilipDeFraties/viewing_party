@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe "New party page" do
+  describe 'As an unregistered user, when I visit the new party page' do
+    it 'I am redirected to the home page to log in' do
+      visit viewing_party_new_path
+      expect(current_path).to eq(root_path)
+      expect(page).to have_content('Please login.')
+    end
+  end
+  
   describe "As a registered user when I visit a movies details page" do
     before :each do
       @user_1 = create :user
