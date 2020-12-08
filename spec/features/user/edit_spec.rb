@@ -21,7 +21,6 @@ RSpec.describe 'User edit' do
         describe "I am redirected back to my dashboard" do
           describe "I see a flash message indicating my profile was updated" do
             it "And the welcome message shows my new username" do
-              binding.pry
               fill_in 'user[username]', with: 'Different Name'
               fill_in 'user[email]', with: 'different_email@email.com'
               click_button 'Update Profile'
@@ -29,7 +28,8 @@ RSpec.describe 'User edit' do
               expect(current_path).to eq(dashboard_path)
               expect(page).to have_content('Profile has been updated!')
               expect(page).to have_content('Welcome Different Name!')
-              binding.pry
+              expect(@user_1.email).to eq('different_email@email.com')
+              expect(@user_1.username).to eq('Different Name')
             end
           end
         end
@@ -63,14 +63,37 @@ RSpec.describe 'User edit' do
     end
 
     describe "When I visit the change password page" do
-      it "I see fields for a new password and confirmation" do
+      before(:each) do
         visit "users/#{@user_1.id}/change_password"
+      end
+
+      it "I see fields for a new password and confirmation" do
         fill_in "user[password]", with: '123'
         fill_in "user[password_confirmation]", with: '123'
         click_on("Update Password")
 
         expect(current_path).to eq(dashboard_path)
-        expect(page).to have_content("Password changed!")
+        expect(page).to have_content('Password changed!')
+        expect(@user_1.password).to eq('123')
+        expect(@user_1.password_confirmation).to eq('123')
+      end
+
+      it "if password doesn't match password confirmation there is an error" do
+        fill_in "user[password]", with: '123'
+        fill_in "user[password_confirmation]", with: '456'
+        click_on("Update Password")
+
+        expect(current_path).to eq("/users/#{@user_1.id}/change_password")
+        expect(page).to have_content("Password confirmation doesn't match Password")
+      end
+
+      it "if fields are left blank there is an error" do
+        fill_in "user[password]", with: ''
+        fill_in "user[password_confirmation]", with: ''
+        click_on("Update Password")
+
+        expect(current_path).to eq("/users/#{@user_1.id}/change_password")
+        expect(page).to have_content("Password confirmation doesn't match Password")
       end
     end
   end
