@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create, :edit, :update]
 
-  get '/users/:id/edit_password', to: "users#edit_password"
+  get '/users/:id/change_password', to: "users#change_password"
+  patch '/users/:id/update_password', to: "users#update_password"
 
   get :dashboard, to: 'dashboard#show'
 
