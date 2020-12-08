@@ -21,10 +21,10 @@
       <% @results.each do |movie|%>
       <tr>
         <td class='title'>
-          <p><%= link_to "#{movie[:title]}", "/movies/#{movie[:id]}" %></p>
+          <p><%= link_to "#{movie.title}", "/movies/#{movie.movie_id}" %></p>
         </td>
         <td class='rating'>
-          <p><%= movie[:vote_average] %></p>
+          <p><%= movie.vote_average %></p>
         </td>
       </tr>
       <% end%>
