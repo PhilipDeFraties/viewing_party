@@ -6,11 +6,11 @@ class Party < ApplicationRecord
   validates :user_id, presence: true
   validates :time, presence: true
   validates :duration, numericality: { greater_than: 0 }
-  validates :date, presence: true, if: :date_valid
+  # validates :date, presence: true, if: :date_valid
 
-  def date_valid
-    (date.to_date >= Date.today && date.to_date < "01-01-2025".to_date) ? true : false
-  end
+  # def date_valid
+  #   (date.to_date >= Date.today && date.to_date < "01-01-2025".to_date) ? true : false
+  # end
 
   def user_status(user_id)
     if self.user_id == user_id
