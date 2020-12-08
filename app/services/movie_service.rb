@@ -25,3 +25,4 @@ class MovieService
     JSON.parse(results.body, symbolize_names: true)
   end
 end
+
