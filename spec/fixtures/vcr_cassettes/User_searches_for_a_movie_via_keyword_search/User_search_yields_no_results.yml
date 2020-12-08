@@ -25,7 +25,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Sun, 06 Dec 2020 00:16:48 GMT
+      - Tue, 08 Dec 2020 17:52:44 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -42,13 +42,13 @@ http_interactions:
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 cddde15c11afac53ac9fe7978dcfecd7.cloudfront.net (CloudFront)
+      - 1.1 1e5c934b70471a41d2b61ae8c4abeb79.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - DLdjQNlVjEgHrAF51MW2fb29UUlRhD18WqucwVD7bjmttHmPGecUrw==
+      - Q156Yjk8e66ygWg-ba8dRurAnZlEw10BYZfCBWbSLIK05AoqGnuxhQ==
     body:
       encoding: UTF-8
       string: '{"page":1,"results":[],"total_pages":0,"total_results":0}'
-  recorded_at: Sun, 06 Dec 2020 00:16:48 GMT
+  recorded_at: Tue, 08 Dec 2020 17:52:44 GMT
 recorded_with: VCR 6.0.0
