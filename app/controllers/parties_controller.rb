@@ -22,11 +22,7 @@ class PartiesController < ApplicationController
   end
 
   def add_movie(api_id)
-    if Movie.find_by(api_id: api_id)
-      @movie = Movie.find_by(api_id: api_id)
-    else
-      @movie = Movie.create!(movie_params)
-    end
+    @movie = Movie.find_by(api_id: api_id) || Movie.create!(movie_params)
   end
 
   private
