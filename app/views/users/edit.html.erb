@@ -1,4 +1,5 @@
 <center>
+<h1>Edit Info</h1>
   <%= form_with model: current_user, url: "/users/#{current_user.id}", method: :patch, local: true do |f| %>
 
     <%= f.label :username %>
@@ -9,3 +10,4 @@
 
     <%= f.submit 'Update Profile' %>
   <% end %>
+</center>
