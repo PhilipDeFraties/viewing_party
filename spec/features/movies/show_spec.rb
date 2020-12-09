@@ -66,5 +66,29 @@ RSpec.describe "Movie Details page" do
         expect(page).to have_content('If you somehow missed this movie and have never seen it then watch it immediately.')
       end
     end
+    it 'when I click the link to view the trailser I am taken to youtube' do
+      fill_in :search, with: 'Jurassic Park'
+      click_on 'Find Movies'
+      expect(current_path).to eq('/movies/search')
+      within first('.title') do
+        click_link
+      end
+      within '#description' do
+        expect(page).to have_link('Watch Trailer on Youtube')
+      end
+    end
+    it "if there isn't a trailer for the movie I see nothing" do
+      VCR.use_cassette('parasite_no_trailer') do
+        fill_in :search, with: 'Parasite'
+        click_on 'Find Movies'
+        expect(current_path).to eq('/movies/search')
+        within first('.title') do
+          click_link
+        end
+        within '#description' do
+          expect(page).to_not have_link('Watch Trailer on Youtube')
+        end
+      end
+    end
   end
 end
