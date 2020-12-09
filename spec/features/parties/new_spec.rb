@@ -41,6 +41,7 @@ RSpec.describe "New party page" do
     it "I can create a new viewing party where the movie is already in the database" do
       @movie = Movie.create!(api_id: 291545, title: 'Parasite', logo: "/astKJpagcTTqybiAZ6qpakVqmow.jpg", runtime: 142)
       VCR.use_cassette('parasite_details') do
+        Movie.delete_all
         visit '/movies/291545'
         click_on 'Create Viewing Party for Movie'
         expect(current_path).to eq('/viewing-party/new')
