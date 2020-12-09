@@ -3,6 +3,7 @@ class MoviesController < ApplicationController
 
   def show
     @results = MovieFacade.details(params[:movie_id])
+    @trailer = MovieFacade.trailer(params[:movie_id])
   end
 
   def top40
