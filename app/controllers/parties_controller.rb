@@ -4,30 +4,36 @@ class PartiesController < ApplicationController
   end
 
   def create
-    add_movie(params[:api_id])
-    @party = current_user.parties.new(
-      date: params[:date],
-      time: params[:time],
-      duration: params[:duration],
-      movie_id: @movie.id
-    )
+    @movie = add_movie(params[:api_id])
+    @party = Party.new_party(current_user.id, party_params, @movie.id)
     if @party.save
-      @party.invite_friends(params[:party_guests])
-      flash[:success] = 'Your Viewing Party was created!'
-      redirect_to dashboard_path
+      send_invites(params[:party_guests])
     else
       flash[:error] = @party.errors.full_messages.to_sentence
       render :new
     end
   end
 
-  def add_movie(api_id)
-    @movie = Movie.find_by(api_id: api_id) || Movie.create!(movie_params)
+  def send_invites(friends)
+    if friends
+      @party.invite_friends(friends)
+      flash[:success] = 'Your Viewing Party was created!'
+    end
+    redirect_to dashboard_path
   end
+
 
   private
 
+  def add_movie(api_id)
+    @movie = Movie.find_by(api_id: api_id) || Movie.create!(movie_params)
+  end
+  
   def movie_params
     params.permit(:title, :runtime, :api_id, :logo)
+  end
+
+  def party_params
+    params.permit(:date, :time, :duration)
   end
 end
