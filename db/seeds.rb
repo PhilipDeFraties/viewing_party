@@ -14,10 +14,10 @@ include FactoryBot::Syntax::Methods
 @movie_2 = create :movie
 @movie_3 = create :movie
 @movie_4 = create :movie
-@party_1 = Party.create!(user_id: @user_1.id, movie_id: @movie_1.id, date: '12-24-2020', time: '9:30')
-@party_2 = Party.create!(user_id: @user_2.id, movie_id: @movie_2.id, date: '12-19-2020', time: '4:30')
-@party_3 = Party.create!(user_id: @user_1.id, movie_id: @movie_3.id, date: '12-20-2020', time: '5:30')
-@party_4 = Party.create!(user_id: @user_2.id, movie_id: @movie_4.id, date: '12-21-2020', time: '6:30')
+@party_1 = Party.create!(user_id: @user_1.id, movie_id: @movie_1.id, date: '12-24-2020', time: '9:30', duration: 123)
+@party_2 = Party.create!(user_id: @user_2.id, movie_id: @movie_2.id, date: '12-19-2020', time: '4:30', duration: 145)
+@party_3 = Party.create!(user_id: @user_1.id, movie_id: @movie_3.id, date: '12-20-2020', time: '5:30', duration: 178)
+@party_4 = Party.create!(user_id: @user_2.id, movie_id: @movie_4.id, date: '12-21-2020', time: '6:30', duration: 193)
 PartyGuest.create!(user_id: @user_1.id, party_id: @party_2.id)
 PartyGuest.create!(user_id: @user_1.id, party_id: @party_4.id)
 
