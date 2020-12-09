@@ -8,7 +8,7 @@ RSpec.describe "New party page" do
       expect(page).to have_content('Please login.')
     end
   end
-
+  
   describe "As a registered user when I visit a movies details page" do
     before :each do
       @user_1 = create :user
@@ -68,7 +68,6 @@ RSpec.describe "New party page" do
         fill_in :duration, with: '180'
         fill_in :date, with: Date.today.strftime("%m-%d-%Y")
         fill_in :time, with: '08:00 PM'
-        # find(:css, "#party_guests_#{@user_2.id}[value='#{@user_2.id}']").set(true)
         click_on 'Save'
         expect(Movie.all.count).to eq(1)
         expect(PartyGuest.all.count).to eq(0)
