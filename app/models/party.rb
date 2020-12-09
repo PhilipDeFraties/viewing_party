@@ -26,4 +26,14 @@ class Party < ApplicationRecord
       self.party_guests.create(user_id: guest.to_i)
     end
   end
+
+  def self.new_party(user_id, party_params, movie_id)
+    create(
+      user_id: user_id,
+      date: party_params[:date],
+      time: party_params[:time],
+      duration: party_params[:duration],
+      movie_id: movie_id
+    )
+  end
 end

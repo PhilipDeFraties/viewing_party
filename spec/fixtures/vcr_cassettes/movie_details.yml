@@ -52,13 +52,15 @@ http_interactions:
       Vary:
       - Accept-Encoding
       X-Cache:
-      - Miss from cloudfront
+      - Hit from cloudfront
       Via:
-      - 1.1 f0b290c4e2273a7586bc6f080031d9bc.cloudfront.net (CloudFront)
+      - 1.1 c4fb40b7909e4dd897bba2e297b284e7.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - WBDvylkJLQuIuNRNhRMDLUflbtodR3lOujA7KSg6V9tTXI_hZ6HaaQ==
+      - vZ4lxmOM3Ke_Lbm0xeKq2ue6KAhxN0b6aJyDStyIJ7e8T9vQ2RAbOA==
+      Age:
+      - '1960'
     body:
       encoding: ASCII-8BIT
       string: '{"adult":false,"backdrop_path":"/fQq1FWp1rC89xDrRMuyFJdFUdMd.jpg","belongs_to_collection":{"id":729322,"name":"Gabriel''s
@@ -68,7 +70,7 @@ http_interactions:
         the pen name Sylvain Reynard.","popularity":39.347,"poster_path":"/qtX2Fg9MTmrbgN1UUvGoCsImTM8.jpg","production_companies":[{"id":92153,"logo_path":"/psjvYkjjgAPtS8utnFYDM8t8yi7.png","name":"PassionFlix","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
         States of America"}],"release_date":"2020-11-19","revenue":0,"runtime":0,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"","title":"Gabriel''s
         Inferno Part III","video":false,"vote_average":9.2,"vote_count":469,"credits":{"cast":[],"crew":[]},"reviews":{"page":1,"results":[],"total_pages":0,"total_results":0}}'
-  recorded_at: Wed, 09 Dec 2020 03:38:49 GMT
+  recorded_at: Wed, 09 Dec 2020 04:11:29 GMT
 - request:
     method: get
     uri: https://api.themoviedb.org/3/movie/761053/videos?api_key=API_Key&language=en-US
@@ -119,16 +121,18 @@ http_interactions:
       Last-Modified:
       - Wed, 09 Dec 2020 03:38:49 GMT
       X-Cache:
-      - Miss from cloudfront
+      - Hit from cloudfront
       Via:
-      - 1.1 6cab218159221ab723900fb6fe65d73f.cloudfront.net (CloudFront)
+      - 1.1 045f1e1f031241f3808c557a2b5d6b0a.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - rPxXxN8WwfS5GXeId1MomhFwg0u2CVy8nJpWt5k9VXWmiNTKSTsQJg==
+      - SWqwjCr6LCZjMduQwZynWzPxMbTypnISxZ5wh_rFdwJjaSdvPhbDGQ==
+      Age:
+      - '1960'
     body:
       encoding: UTF-8
       string: '{"id":761053,"results":[{"id":"5fa486b843494f004118a95b","iso_639_1":"en","iso_3166_1":"US","key":"mjPUGem9SaY","name":"Gabriel''s
         Inferno Part III - Official Trailer (PASSIONFLIX)","site":"YouTube","size":1080,"type":"Trailer"}]}'
-  recorded_at: Wed, 09 Dec 2020 03:38:49 GMT
+  recorded_at: Wed, 09 Dec 2020 04:11:29 GMT
 recorded_with: VCR 6.0.0
