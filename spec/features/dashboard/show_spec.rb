@@ -9,6 +9,17 @@ RSpec.describe 'Dashboard Page' do
     end
   end
 
+  it "If there are no scheduled parties, I see a message" do
+    user_1 = create :user
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user_1)
+    PartyGuest.delete_all
+    Party.delete_all
+    visit dashboard_path
+    within "#parties" do
+      expect(page).to have_content("No Parties Scheduled")
+    end
+  end
+
   describe 'As an authenticated user, when I visit my dashboard page' do
     before(:each) do
       @user_1 = create :user
@@ -109,16 +120,6 @@ RSpec.describe 'Dashboard Page' do
           expect(page).to have_content("#{party.time}")
           expect(page).to have_content("Invited")
         end
-      end
-    end
-
-    it "If there are no scheduled parties, I see a message" do
-      PartyGuest.delete_all
-      Party.delete_all
-      visit dashboard_path
-
-      within "#parties" do
-        expect(page).to have_content("No Parties Scheduled")
       end
     end
 
