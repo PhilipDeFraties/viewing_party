@@ -67,35 +67,5 @@ RSpec.describe "New party page" do
         expect(page).to have_content('Duration must be greater than 0')
       end
     end
-
-    it "if I enter a date before todays date I get an error message" do
-      @movie = Movie.create!(api_id: 291545, title: 'Parasite', logo: "/astKJpagcTTqybiAZ6qpakVqmow.jpg", runtime: 142)
-      VCR.use_cassette('parasite_details') do
-        visit '/movies/291545'
-        click_on 'Create Viewing Party for Movie'
-        expect(current_path).to eq('/viewing-party/new')
-        fill_in :duration, with: '180'
-        fill_in :date, with: '11/11/2020'
-        fill_in :time, with: '08:00 PM'
-        find(:css, "#party_guests_#{@user_2.id}[value='#{@user_2.id}']").set(true)
-        click_on 'Save'
-        expect(page).to have_content('????')
-      end
-    end
-
-    it "if I enter a date that is more than 5 years from now I get an error message" do
-      @movie = Movie.create!(api_id: 291545, title: 'Parasite', logo: "/astKJpagcTTqybiAZ6qpakVqmow.jpg", runtime: 142)
-      VCR.use_cassette('parasite_details') do
-        visit '/movies/291545'
-        click_on 'Create Viewing Party for Movie'
-        expect(current_path).to eq('/viewing-party/new')
-        fill_in :duration, with: '180'
-        fill_in :date, with: '11/11/2026'
-        fill_in :time, with: '08:00 PM'
-        find(:css, "#party_guests_#{@user_2.id}[value='#{@user_2.id}']").set(true)
-        click_on 'Save'
-        expect(page).to have_content('????')
-      end
-    end
   end
 end

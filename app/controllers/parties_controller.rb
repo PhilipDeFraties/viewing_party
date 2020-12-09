@@ -13,7 +13,7 @@ class PartiesController < ApplicationController
       duration: params[:duration],
       movie_id: @movie.id
     )
-    if @party.save
+    if @party.save!
       @party.invite_friends(params[:party_guests])
       flash[:success] = 'Your Viewing Party was created!'
       redirect_to dashboard_path

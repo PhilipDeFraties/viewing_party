@@ -13,7 +13,7 @@
 <%= f.text_field :duration, value: params[:runtime] %>
 
 <%= f.label :date %>
-<%= f.date_field :date %><br><br>
+<%= f.date_field :date, min: Date.today, max: Date.today.next_year(4) %><br><br>
 
 <%= f.label :time %>
 <%= f.time_field :time %><br><br>
