@@ -92,5 +92,19 @@ RSpec.describe "New party page" do
         expect(page).to have_content('Duration must be greater than 0')
       end
     end
+
+    it "if I leave fields blank I see an error message" do
+      @movie = Movie.create!(api_id: 291545, title: 'Parasite', logo: "/astKJpagcTTqybiAZ6qpakVqmow.jpg", runtime: 142)
+      VCR.use_cassette('parasite_details') do
+        visit '/movies/291545'
+        click_on 'Create Viewing Party for Movie'
+        expect(current_path).to eq('/viewing-party/new')
+        fill_in :duration, with: ""
+        fill_in :date, with: ""
+        fill_in :time, with: ""
+        click_on 'Save'
+        expect(page).to have_content("Time can't be blank, Date can't be blank, Duration can't be blank, and Duration is not a number")
+      end
+    end
   end
 end
