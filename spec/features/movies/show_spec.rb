@@ -4,9 +4,11 @@ RSpec.describe "Movie Details page" do
     before :each do
       @user_1 = create :user
       visit root_path
-      fill_in :email, with: @user_1.email
-      fill_in :password, with: @user_1.password
-      click_button 'Login'
+      within ("#login-form") do
+        fill_in :email,	with: @user_1.email
+        fill_in :password,	with: @user_1.password
+        click_button 'Login'
+      end
       visit '/discover'
       VCR.insert_cassette('jurassic_search')
     end

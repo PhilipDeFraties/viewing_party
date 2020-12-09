@@ -9,9 +9,11 @@ RSpec.describe "New party page" do
       
 
       visit '/'
-      fill_in :email, with: @user_1.email
-      fill_in :password, with: @user_1.password
-      click_button 'Login'
+      within ("#login-form") do
+        fill_in :email,	with: @user_1.email
+        fill_in :password,	with: @user_1.password
+        click_button 'Login'
+      end
     end
 
     it "I can create a new viewing party where the movie is not in the database" do

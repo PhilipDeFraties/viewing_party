@@ -6,29 +6,32 @@ RSpec.describe "Login/Session Creation" do
     visit root_path
   end
   it "When I visit the login path I am able to login with valid credentials" do
-    fill_in :email,	with: @user.email
-    fill_in :password,	with: @user.password
-
-    click_button "Login"
+    within ("#login-form") do
+      fill_in :email,	with: @user.email
+      fill_in :password,	with: @user.password
+      click_button 'Login'
+    end
 
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("You are now logged in")
   end
   it "Invalid email " do
-    fill_in :email,	with: 'fake@email.com'
-    fill_in :password,	with: @user.password
-
-    click_button "Login"
+    within ("#login-form") do
+      fill_in :email,	with: "Wrongemail"
+      fill_in :password,	with: @user.password
+      click_button 'Login'
+    end
 
     expect(page).to have_content("Email and/or password is incorrect")
     expect(current_path).to eq(root_path)
   end
 
   it "Invalid password " do
-    fill_in :email,	with: @user.email
-    fill_in :password,	with: 'wrong_password'
-
-    click_button "Login"
+    within ("#login-form") do
+      fill_in :email,	with: @user.email
+      fill_in :password,	with: "wrongpassword"
+      click_button 'Login'
+    end
 
     expect(page).to have_content("Email and/or password is incorrect")
     expect(current_path).to eq(root_path)
