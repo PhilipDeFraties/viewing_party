@@ -1,0 +1,20 @@
+<center>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Vote Average</th>
+    </tr>
+    <div id='movies-table'>
+      <% @results.each do |movie|%>
+      <tr>
+        <td class='title'>
+          <p><%= link_to "#{movie.title}", "/movies/#{movie.movie_id}" %></p>
+        </td>
+        <td class='rating'>
+          <p><%= movie.vote_average %></p>
+        </td>
+      </tr>
+      <% end%>
+    </div>
+  </table>
+</center>
