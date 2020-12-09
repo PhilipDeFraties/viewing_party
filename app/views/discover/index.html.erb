@@ -1,26 +1,16 @@
 <center>
   <h1>Welcome <%= current_user.username %>!</h1>
-  
 <div id="search-form">
   <%= button_to 'Find Top Rated Movies', '/movies/top40', method: :get, remote: true %> <br>
   
   <h3>OR</h3> <br>
-<% if formats == [:js] %>
+
   <%= form_tag "/movies/search", method: :get, remote: true do %>
     <%= label_tag 'Search by movie title' %>
     <%= text_field_tag :search %>
 
     <%= submit_tag 'Find Movies' %>
   <% end%>
-<% else %>
-  <%= form_tag "/movies/search", method: :get do %>
-    <%= label_tag 'Search by movie title' %>
-    <%= text_field_tag :search %>
-
-    <%= submit_tag 'Find Movies' %>
-  <% end%>
-<% end %>
-
 </div>
  <div class="results"></div>
 </center>
