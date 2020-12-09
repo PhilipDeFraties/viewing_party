@@ -17,9 +17,7 @@ class PartiesController < ApplicationController
   end
 
   def send_invites(friends)
-    if friends
-      @party.invite_friends(friends)
-    end
+    @party.invite_friends(friends) if friends
     flash[:success] = 'Your Viewing Party was created!'
     redirect_to dashboard_path
   end
