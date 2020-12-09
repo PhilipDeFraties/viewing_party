@@ -19,6 +19,12 @@ class MovieService
     json[:results]
   end
 
+  def self.trailer(movie_id)
+    uri = "/3/movie/#{movie_id}/videos?api_key=#{ENV['THE_MOVIE_DB_API']}&language=en-US"
+    json = get_results(uri)
+    json[:results][0]
+  end
+
   def self.get_results(uri)
     conn = Faraday.new(url: 'https://api.themoviedb.org')
     results = conn.get(uri)
