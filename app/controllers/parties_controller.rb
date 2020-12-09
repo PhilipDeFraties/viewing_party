@@ -1,4 +1,6 @@
 class PartiesController < ApplicationController
+  before_action :require_current_user
+
   def new
     @party = Party.new
   end

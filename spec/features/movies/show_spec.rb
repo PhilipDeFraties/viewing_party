@@ -1,5 +1,13 @@
 require 'rails_helper'
 RSpec.describe "Movie Details page" do
+  describe 'As an unregistered user, when I visit the movies details page' do
+    it 'I am redirected to the home page to log in' do
+      visit '/movies/496243'
+      expect(current_path).to eq(root_path)
+      expect(page).to have_content('Please login.')
+    end
+  end
+
   describe "As a registered user, when I visit a movies detail page" do
     before :each do
       @user_1 = create :user
