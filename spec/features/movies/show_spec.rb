@@ -33,29 +33,38 @@ RSpec.describe "Movie Details page" do
         click_on 'Create Viewing Party for Movie'
         expect(current_path).to eq('/viewing-party/new')
     end
-    it 'I see a button to create a viewing party' do
+    it 'I see a the movie details' do
       fill_in :search, with: 'Jurassic Park'
       click_on 'Find Movies'
       expect(current_path).to eq('/movies/search')
       within first('.title') do
         click_link
       end
-      expect(page).to have_css('#title')
-      expect(page).to have_content('Jurassic Park')
-      expect(page).to have_css('#vote-average')
-      expect(page).to have_content('Vote Average: 7.9')
-      expect(page).to have_css('#runtime')
-      expect(page).to have_content('Runtime: 2 hrs 7 mins')
-      expect(page).to have_css('#genre')
-      expect(page).to have_content("Genre(s):")
-      expect(page).to have_css('#description')
-      expect(page).to have_content('A wealthy entrepreneur secretly creates a theme park featuring living dinosaurs')
-      expect(page).to have_css('#cast')
-      expect(page).to have_content('Sam Neill as Dr. Alan Grant')
-      expect(page).to have_css('#review')
-      expect(page).to have_content('4 Reviews')
-      expect(page).to have_content('Author: BinaryCrunch')
-      expect(page).to have_content('If you somehow missed this movie and have never seen it then watch it immediately.')
+      within '#title' do
+        expect(page).to have_content('Jurassic Park')
+      end
+      within '#vote-average' do
+        expect(page).to have_content('Vote Average: 7.9')
+      end
+      within '#runtime' do
+        expect(page).to have_content('Runtime: 2 hrs 7 mins')
+      end
+      within '#genre' do 
+        expect(page).to have_content("Genre(s):")
+      end
+      within '#description' do 
+        expect(page).to have_content('A wealthy entrepreneur secretly creates a theme park featuring living dinosaurs')
+      end
+      within '#cast' do
+        expect(page).to have_content('Sam Neill as Dr. Alan Grant')
+      end
+      within '#review' do 
+        expect(page).to have_content('4 Reviews')
+      end
+      within '#review' do
+        expect(page).to have_content('Author: BinaryCrunch')
+        expect(page).to have_content('If you somehow missed this movie and have never seen it then watch it immediately.')
+      end
     end
   end
 end
