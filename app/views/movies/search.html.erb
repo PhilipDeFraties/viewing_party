@@ -5,7 +5,7 @@
 
   <h3>OR</h3> <br>
 
-  <%= form_tag "/movies/search?q=#{:search}", method: :get do %>
+  <%= form_tag "/movies/search", method: :get do %>
   <%= label_tag 'Search by movie title' %>
   <%= text_field_tag :search %>
 
