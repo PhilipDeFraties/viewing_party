@@ -17,13 +17,4 @@ class MovieFacade
       MovieResults.new(movie)
     end
   end
-
-  def self.trailer(movie_id)
-    json = MovieService.trailer(movie_id)
-    if json.nil?
-      @trailer = nil
-    else
-      @trailer = MovieTrailer.new(json)
-    end
-  end
 end
