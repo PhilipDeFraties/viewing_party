@@ -24,6 +24,10 @@ class PartiesController < ApplicationController
 
   private
 
+  def add_movie(api_id)
+    @movie = Movie.find_by(api_id: api_id) || Movie.create!(movie_params)
+  end
+
   def movie_params
     params.permit(:title, :runtime, :api_id, :logo)
   end
