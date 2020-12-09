@@ -37,6 +37,9 @@
 <section id='description'>
 <h3>Summary</h3>
 <p><%= @results.overview %></p>
+<% unless @trailer.nil? %>
+  <p><%= link_to 'Watch Trailer on Youtube', "https://www.youtube.com/watch?v=#{@trailer.key}" %></p>
+<% end %>
 </section>
 <hr>
 
