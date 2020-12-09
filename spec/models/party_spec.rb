@@ -37,5 +37,19 @@ RSpec.describe Party, type: :model do
       party_1 = user_1.parties.create!(movie_id: movie_1.id, date: Date.today.strftime('%m/%d/%Y'), time: '9:30', duration: 142)
       expect(party_1.user_status(user_1.id)).to eq('Host')
     end
+
+    it ".new_party" do
+      user = create :user
+      party_params = {date: "12-08-2020", time: "08:00 PM", duration: "180"}
+      movie = create :movie
+      party = Party.new_party(user.id, party_params, movie.id)
+
+      expect(party.class).to eq(Party)
+      expect(party.user).to eq(user)
+      expect(party.movie).to eq(movie)
+      expect(party.date).to eq(party_params[:date])
+      expect(party.time).to eq(party_params[:time])
+      expect(party.duration).to eq(party_params[:duration].to_i)
+    end
   end
 end

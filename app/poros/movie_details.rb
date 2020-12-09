@@ -1,5 +1,6 @@
 class MovieDetails
   attr_reader :title, :runtime, :vote_average, :genres, :overview, :cast, :reviews, :logo
+
   def initialize(attributes)
     @title = attributes[:title]
     @runtime = attributes[:runtime]
