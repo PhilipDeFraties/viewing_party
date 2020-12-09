@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.themoviedb.org/3/movie/761053?api_key=API_Key&append_to_response=credits,reviews&language=en-US
+    uri: https://api.themoviedb.org/3/movie/761053?api_key=API_Key&append_to_response=credits,reviews,videos&language=en-US
     body:
       encoding: US-ASCII
       string: ''
@@ -25,7 +25,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 09 Dec 2020 03:38:49 GMT
+      - Wed, 09 Dec 2020 20:49:46 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -42,97 +42,32 @@ http_interactions:
       X-Memc-Key:
       - 695021ffea95f6546d373930b913d56b7dd13988
       X-Memc-Age:
-      - '5665'
+      - '1994'
       X-Memc-Expires:
-      - '15935'
+      - '19606'
       Etag:
-      - W/"920dc4ecbb902692cb6c3e218a9d0350"
+      - W/"6c196bbf8634e65f7fc136103b6a755b"
       Last-Modified:
-      - Wed, 09 Dec 2020 03:38:49 GMT
+      - Wed, 09 Dec 2020 20:49:46 GMT
       Vary:
       - Accept-Encoding
       X-Cache:
-      - Hit from cloudfront
+      - Miss from cloudfront
       Via:
-      - 1.1 c4fb40b7909e4dd897bba2e297b284e7.cloudfront.net (CloudFront)
+      - 1.1 6c02603f677dd5669f8ab3b41062340f.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - vZ4lxmOM3Ke_Lbm0xeKq2ue6KAhxN0b6aJyDStyIJ7e8T9vQ2RAbOA==
-      Age:
-      - '1960'
+      - 22VtDL1lwPqa7MF_qIvMDsJ_5aCqpD8djILHDHWeRcSLbPSW3CNe8A==
     body:
       encoding: ASCII-8BIT
       string: '{"adult":false,"backdrop_path":"/fQq1FWp1rC89xDrRMuyFJdFUdMd.jpg","belongs_to_collection":{"id":729322,"name":"Gabriel''s
-        Inferno Collection","poster_path":"/hHTzveTImCWuQfpTNiB5yGZOo7e.jpg","backdrop_path":"/hXF55codODfnzTZDExbUbfFmA9y.jpg"},"budget":0,"genres":[],"homepage":"","id":761053,"imdb_id":null,"original_language":"en","original_title":"Gabriel''s
+        Inferno Collection","poster_path":"/LdSn17U6ybhtPJT3S6fTNRni5Y.jpg","backdrop_path":"/hXF55codODfnzTZDExbUbfFmA9y.jpg"},"budget":0,"genres":[],"homepage":"","id":761053,"imdb_id":null,"original_language":"en","original_title":"Gabriel''s
         Inferno Part III","overview":"The final part of the film adaption of the erotic
         romance novel Gabriel''s Inferno written by an anonymous Canadian author under
-        the pen name Sylvain Reynard.","popularity":39.347,"poster_path":"/qtX2Fg9MTmrbgN1UUvGoCsImTM8.jpg","production_companies":[{"id":92153,"logo_path":"/psjvYkjjgAPtS8utnFYDM8t8yi7.png","name":"PassionFlix","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
+        the pen name Sylvain Reynard.","popularity":39.347,"poster_path":"/fYtHxTxlhzD4QWfEbrC1rypysSD.jpg","production_companies":[{"id":92153,"logo_path":"/psjvYkjjgAPtS8utnFYDM8t8yi7.png","name":"PassionFlix","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
         States of America"}],"release_date":"2020-11-19","revenue":0,"runtime":0,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"","title":"Gabriel''s
-        Inferno Part III","video":false,"vote_average":9.2,"vote_count":469,"credits":{"cast":[],"crew":[]},"reviews":{"page":1,"results":[],"total_pages":0,"total_results":0}}'
-  recorded_at: Wed, 09 Dec 2020 04:11:29 GMT
-- request:
-    method: get
-    uri: https://api.themoviedb.org/3/movie/761053/videos?api_key=API_Key&language=en-US
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v1.0.1
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json;charset=utf-8
-      Content-Length:
-      - '229'
-      Connection:
-      - keep-alive
-      Date:
-      - Wed, 09 Dec 2020 03:38:49 GMT
-      Server:
-      - openresty
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Methods:
-      - GET, HEAD, POST, PUT, DELETE, OPTIONS
-      Access-Control-Expose-Headers:
-      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
-        Content-Length, Content-Range
-      Cache-Control:
-      - public, max-age=21600
-      X-Memc:
-      - HIT
-      X-Memc-Key:
-      - e7ac44b8b43e124ccd70b6044d05a6ca7b18b028
-      X-Memc-Age:
-      - '7533'
-      X-Memc-Expires:
-      - '14067'
-      Etag:
-      - W/"d67c212de167c4e24e620b9dcb979d2f"
-      Last-Modified:
-      - Wed, 09 Dec 2020 03:38:49 GMT
-      X-Cache:
-      - Hit from cloudfront
-      Via:
-      - 1.1 045f1e1f031241f3808c557a2b5d6b0a.cloudfront.net (CloudFront)
-      X-Amz-Cf-Pop:
-      - DEN50-C2
-      X-Amz-Cf-Id:
-      - SWqwjCr6LCZjMduQwZynWzPxMbTypnISxZ5wh_rFdwJjaSdvPhbDGQ==
-      Age:
-      - '1960'
-    body:
-      encoding: UTF-8
-      string: '{"id":761053,"results":[{"id":"5fa486b843494f004118a95b","iso_639_1":"en","iso_3166_1":"US","key":"mjPUGem9SaY","name":"Gabriel''s
-        Inferno Part III - Official Trailer (PASSIONFLIX)","site":"YouTube","size":1080,"type":"Trailer"}]}'
-  recorded_at: Wed, 09 Dec 2020 04:11:29 GMT
+        Inferno Part III","video":false,"vote_average":9.2,"vote_count":470,"credits":{"cast":[],"crew":[]},"reviews":{"page":1,"results":[],"total_pages":0,"total_results":0},"videos":{"results":[{"id":"5fa486b843494f004118a95b","iso_639_1":"en","iso_3166_1":"US","key":"mjPUGem9SaY","name":"Gabriel''s
+        Inferno Part III - Official Trailer (PASSIONFLIX)","site":"YouTube","size":1080,"type":"Trailer"}]}}'
+  recorded_at: Wed, 09 Dec 2020 20:49:46 GMT
 recorded_with: VCR 6.0.0
