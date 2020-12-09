@@ -5,7 +5,8 @@ class Party < ApplicationRecord
   has_many :users, through: :party_guests
   validates :user_id, presence: true
   validates :time, presence: true
-  validates :duration, numericality: { greater_than: 0 }
+  validates :date, presence: true
+  validates :duration, presence: true, numericality: { greater_than: 0 }
 
   def user_status(user_id)
     if self.user_id == user_id
