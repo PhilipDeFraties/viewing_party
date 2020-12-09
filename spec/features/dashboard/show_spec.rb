@@ -19,7 +19,6 @@ RSpec.describe 'Dashboard Page' do
       expect(page).to have_content("No Parties Scheduled")
     end
   end
-
   describe 'As an authenticated user, when I visit my dashboard page' do
     before(:each) do
       @user_1 = create :user
@@ -122,7 +121,7 @@ RSpec.describe 'Dashboard Page' do
         end
       end
     end
-
+    
     it "I see a button to edit my profile, which takes me to an edit form" do
       expect(page).to have_link('Edit Profile')
       click_link 'Edit Profile'
