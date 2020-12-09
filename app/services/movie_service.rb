@@ -1,6 +1,6 @@
 class MovieService
   def self.movie_details(movie_id)
-    uri = "/3/movie/#{movie_id}?&append_to_response=credits%2Creviews"
+    uri = "/3/movie/#{movie_id}?&append_to_response=credits%2Creviews%2Cvideos"
     get_results(uri)
   end
 
@@ -19,12 +19,6 @@ class MovieService
     uri = "/3/search/movie?&query=#{search}%20"
     json = get_results(uri)
     json[:results]
-  end
-
-  def self.trailer(movie_id)
-    uri = "/3/movie/#{movie_id}/videos?api_key=#{ENV['THE_MOVIE_DB_API']}&language=en-US"
-    json = get_results(uri)
-    json[:results][0]
   end
 
   def self.get_results(uri)
