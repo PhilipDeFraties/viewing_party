@@ -52,13 +52,15 @@ http_interactions:
       Vary:
       - Accept-Encoding
       X-Cache:
-      - Miss from cloudfront
+      - Hit from cloudfront
       Via:
-      - 1.1 6c02603f677dd5669f8ab3b41062340f.cloudfront.net (CloudFront)
+      - 1.1 48a6ccbb0ddb052ab512a3422295bd39.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - 22VtDL1lwPqa7MF_qIvMDsJ_5aCqpD8djILHDHWeRcSLbPSW3CNe8A==
+      - nbrNmJKQhxtYFgaorowv4KZY6dP_pBF1RGoOUcjsPWafss7UHR3kqA==
+      Age:
+      - '7608'
     body:
       encoding: ASCII-8BIT
       string: '{"adult":false,"backdrop_path":"/fQq1FWp1rC89xDrRMuyFJdFUdMd.jpg","belongs_to_collection":{"id":729322,"name":"Gabriel''s
@@ -69,5 +71,5 @@ http_interactions:
         States of America"}],"release_date":"2020-11-19","revenue":0,"runtime":0,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"","title":"Gabriel''s
         Inferno Part III","video":false,"vote_average":9.2,"vote_count":470,"credits":{"cast":[],"crew":[]},"reviews":{"page":1,"results":[],"total_pages":0,"total_results":0},"videos":{"results":[{"id":"5fa486b843494f004118a95b","iso_639_1":"en","iso_3166_1":"US","key":"mjPUGem9SaY","name":"Gabriel''s
         Inferno Part III - Official Trailer (PASSIONFLIX)","site":"YouTube","size":1080,"type":"Trailer"}]}}'
-  recorded_at: Wed, 09 Dec 2020 20:49:46 GMT
+  recorded_at: Wed, 09 Dec 2020 22:56:34 GMT
 recorded_with: VCR 6.0.0
