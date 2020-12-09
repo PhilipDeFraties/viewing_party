@@ -22,12 +22,12 @@ class Party < ApplicationRecord
     end
   end
 
-  def self.new_party(user_id, movie_params, movie_id)
+  def self.new_party(user_id, party_params, movie_id)
     create(
       user_id: user_id,
-      date: movie_params[:date],
-      time: movie_params[:time],
-      duration: movie_params[:duration],
+      date: party_params[:date],
+      time: party_params[:time],
+      duration: party_params[:duration],
       movie_id: movie_id
     )
   end
