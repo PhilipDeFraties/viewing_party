@@ -1,18 +1,27 @@
 <center>
+<div id="greeting">
   <h1>Welcome to Viewing Party</h1>
 
   <p id="app-desc">Viewing party is an application in which users can explore movie options and create a viewing party event for the user and friends.</p>
+</div>
 <% unless current_user %>
-  <%= form_tag "/login", method: :post do %>
-    <%= label_tag :email %>
-    <%= text_field_tag :email %> <br>
+  <%= button_to 'Login', "#login", id: "login-link" %>
+  <div id='login-form'>
+    <%= form_tag "/login", method: :post do %>
+      <%= label_tag :email %>
+      <%= text_field_tag :email %> <br>
 
-    <%= label_tag :password %>
-    <%= password_field_tag :password %> <br>
+      <%= label_tag :password %>
+      <%= password_field_tag :password %> <br>
 
-    <%= submit_tag "Login" %>
-    <%= button_to "Register", '/register', method: :get %>
-  <% end %>
+      <%= submit_tag "Login" %>
+    <% end %>
+  </div>
+    <h2 id="separator">OR</h2>
+      <%= button_to "Register", '/register', method: :get, id: "register-link" %>
+      <div id="register-form">
+            <%= render 'register' %>
+      </div>
 <% end %>
 <br>
 </center>

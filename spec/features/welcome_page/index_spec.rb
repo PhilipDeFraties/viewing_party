@@ -18,17 +18,16 @@ RSpec.describe "Welcome Page" do
     end
 
     it "a button to log in that takes me to my user dashboard" do
-      fill_in :email, with: @user_1.email
-      fill_in :password, with: @user_1.password
-      click_button 'Login'
-      expect(current_path).to eq(dashboard_path)
+      # save_and_open_page
+      
+      within ("#login-form") do
+        fill_in :email, with: @user_1.email
+        fill_in :password, with: @user_1.password
+        click_button 'Login'
+        expect(current_path).to eq(dashboard_path)
+      end
     end
-
-    it "a button to register as a user that takes me to a registration form" do
-      click_button 'Register'
-      expect(current_path).to eq(register_path)
-    end
-
+    
     describe 'As a logged in user, when I visit the welcome page' do
       it "I am redirected to my user dashboard" do
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
