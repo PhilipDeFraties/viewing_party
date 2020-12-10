@@ -11,6 +11,7 @@ describe Movie, type: :model do
   end
 
   it ".check_db" do
+    Movie.delete_all
     movie_1 = create :movie
     movie_params = {title: 'The Fountain', runtime: '145', api_id: '5555', logo: '/sdafahsdlkfjhasd.jpg'}
     Movie.check_db(movie_1.api_id, movie_params)

@@ -68,5 +68,31 @@ RSpec.describe "Movie Details page" do
         expect(page).to have_content('If you somehow missed this movie and have never seen it then watch it immediately.')
       end
     end
+    it 'if the api response has a trailer I see an embedded video' do
+      fill_in :search, with: 'Jurassic Park'
+      click_on 'Find Movies'
+      within first('.title') do
+        click_link
+      end
+      within '#description' do
+        expect(page).to have_css('#trailer')
+      end
+    end
+    it "if the api response does not have a trailer I do not see an embedded video" do
+      VCR.use_cassette('parasite_no_trailer') do
+        fill_in :search, with: 'Parasite'
+        click_on 'Find Movies'
+        within first('.title') do
+          click_link
+        end
+        within '#description' do
+          begin
+            expect(page).to_not have_css("object[class='flash video']")
+          rescue RSpec::Expectations::ExpectationNotMetError
+            expect(page).to_not have_css("iframe[class='html5 video']")
+          end
+        end
+      end
+    end
   end
 end

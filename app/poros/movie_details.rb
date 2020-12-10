@@ -1,5 +1,5 @@
 class MovieDetails
-  attr_reader :title, :runtime, :vote_average, :genres, :overview, :cast, :reviews, :logo
+  attr_reader :title, :runtime, :vote_average, :genres, :overview, :cast, :reviews, :logo, :video
 
   def initialize(attributes)
     @title = attributes[:title]
@@ -10,6 +10,7 @@ class MovieDetails
     @cast = attributes[:credits][:cast]
     @reviews = attributes[:reviews][:results]
     @logo = attributes[:poster_path]
+    @video = find_video(attributes[:videos])
   end
 
   def format_genres(genres)
@@ -20,5 +21,15 @@ class MovieDetails
 
   def format_runtime
     "#{@runtime / 60} hrs #{@runtime % 60} mins"
+  end
+
+  def find_video(videos)
+    if videos[:results][0].nil?
+      return nil
+    elsif videos[:results][0][:site] != 'YouTube'
+      return nil
+    else
+      videos[:results][0][:key]
+    end
   end
 end
