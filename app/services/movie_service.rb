@@ -7,7 +7,7 @@ class MovieService
   def self.top40
     page = 1
     movies = []
-    2.times do
+    until movies.flatten.count == 40 do
       uri = "/3/movie/top_rated?&page=#{page}"
       movies << get_results(uri)[:results]
       page += 1
