@@ -25,9 +25,9 @@ class MovieDetails
 
   def find_video(videos)
     if videos[:results][0].nil?
-      return nil
+      nil
     elsif videos[:results][0][:site] != 'YouTube'
-      return nil
+      nil
     else
       videos[:results][0][:key]
     end
