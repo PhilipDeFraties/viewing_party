@@ -15,6 +15,7 @@
           <%= link_to 'Home', root_path %>
           <%= link_to 'Dashboard', dashboard_path %>
           <%= link_to 'Discover Movies', '/discover' %>
+          <%= link_to 'Logout', "/logout", method: :delete %>
         <% else %>
           <%= link_to 'Home', root_path %>
           <%= link_to 'Register', '/register' %>
