@@ -56,10 +56,12 @@ Replace <YOUR API KEY> with the key you obtained from The Movie Database API.
 * To see a coverage report enter `$ open coverage/index.html`
 
 ## Future Changes
-1. Full CRUD functionality for users, parties, and friendships
-2. Utilize Actionmailer to send viewing party event details to users.
-3. Implement Chat functionality with ActionCable
-4. Deploy to a different service other than Heroku
+1. Full CRUD functionality for users, parties, and friendships.
+2. Add friends to parties, organize parties by upcoming/past.
+3. Friend request system: friendships only created once request accepted
+4. Utilize Actionmailer to send viewing party event details to users.
+5. Implement Chat functionality with ActionCable
+6. Deploy to a different service other than Heroku
 
 ## Additonal References
 - [Base Respository](https://backend.turing.io/module3/projects/viewing_party) used for Turing's Backend Module 3.
