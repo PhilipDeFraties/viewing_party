@@ -6,7 +6,7 @@ This is the base repo for the [viewing party project](https://backend.turing.io/
 
 ### About this Project
 Viewing party is an application in which users can explore movie options and create a viewing party event for the user and friend's. You can check out our site [here](https://friends-viewing-party.herokuapp.com)!
-
+![](https://github.com/Oxalisviolacea/viewing_party/blob/main/images/Viewing%20Party%20Gif.gif)
 ## Contributors
 - Hanna Davis  
    [Github](https://github.com/Oxalisviolacea) | [LinkedIn](https://www.linkedin.com/in/hanna-davis/)
@@ -16,6 +16,7 @@ Viewing party is an application in which users can explore movie options and cre
    [Github](https://github.com/GregJMitchell) | [LinkedIn](https://www.linkedin.com/in/gregory-j-mitchell/)
 
 ## Schema
+![](https://github.com/Oxalisviolacea/viewing_party/blob/main/images/Viewing%20Party%20Schema.jpg)
 ## Built With
 - Ruby on Rails
 - JQuery
