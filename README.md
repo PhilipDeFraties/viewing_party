@@ -1,4 +1,5 @@
-[![Travis CI w/ Logo](https://img.shields.io/travis/tterb/yt2mp3/master.svg?logo=travis)](https://travis-ci.com/Oxalisviolacea/viewing_party.svg?branch=main) 
+
+[![Build Status](https://travis-ci.com/Oxalisviolacea/viewing_party.svg?branch=main)](https://travis-ci.com/Oxalisviolacea/viewing_party)
 # Viewing Party
 
 This is the base repo for the [viewing party project](https://backend.turing.io/module3/projects/viewing_party) used for Turing's Backend Module 3.
@@ -25,7 +26,6 @@ Viewing party is an application in which users can explore movie options and cre
 3. Install gem packages with `bundle install`
 4. Setup the database with `rails db:{create,migrate,seed}`
 5. Run RSpec with `bundle exec rspec` (All 97 tests should be passing)
-
 ## Additonal References
 - [Base Respository](https://backend.turing.io/module3/projects/viewing_party) used for Turing's Backend Module 3.
 - [Wire Frames](https://backend.turing.io/module3/projects/viewing_party/wireframes)
