@@ -56,8 +56,8 @@ Replace <YOUR API KEY> with the key you obtained from The Movie Database API.
 * To see a coverage report enter `$ open coverage/index.html`
 
 ## Future Changes
-1. Full CRUD functionality for users, parties, and friendships.
-2. Add friends to parties, organize parties by upcoming/past.
+1. Full CRUD functionality for users, parties, friendships, party_guests.
+2. Add friends to existing parties, organize parties on dashboard by upcoming/past.
 3. Friend request system: friendships only created once request accepted
 4. Utilize Actionmailer to send viewing party event details to users.
 5. Implement Chat functionality with ActionCable
