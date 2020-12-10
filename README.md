@@ -33,13 +33,14 @@ Viewing party is an application in which users can explore movie options and cre
 1. Get an api key from [The Movie Database API](https://developers.themoviedb.org/3/getting-started/authentication)
 1. Fork and clone the repo
 2. Install any missing gems from gem file
-3. Install gem packages with `bundle install`
-4. Setup the database with `rails db:{create,migrate,seed}`
+3. Install gem packages with `$ rails db:{create,migrate,seed}`
 5. In config/application.ymal paste:
 `MOVIEDB_API_KEY: "<YOUR API KEY>"`
 Replace <YOUR API KEY> with the key you obtained from The Movie Database API.
 6. From your terminal run `$ rails s` and navigate to http://localhost:3000/ in your browser to navigate the app
-7. To run our test suite, RSpec, enter `bundle exec rspec` in the terminal. (All 97 tests should be passing)
+
+## Testing
+RSpec and Capybara were used for unit and integration testing and Travis-CI was used for continuous integration ensuring any changes pushed to the main branch did not break any previously implemented tests. Simplecov was used to track total test coverage and as of 12/10/2020 shows 100% coverage. To run our test suite, RSpec, enter `$ bundle exec rspec` in the terminal. (All 98 tests should be passing). To see a coverage report enter '$open coverage/index.html'
 
 ## Future Changes
 1. Full CRUD functionality for users, parties, and friendships
