@@ -22,13 +22,20 @@ Viewing party is an application in which users can explore movie options and cre
 - Ruby on Rails
 - JQuery  
 
-## Important Gems:
-[faraday](https://github.com/lostisland/faraday)
-[webmock](https://github.com/bblimke/webmock)
-[vcr](https://github.com/vcr/vcr)
-[figaro](https://github.com/laserlemon/figaro)
-[travis](https://docs.travis-ci.com/user/languages/ruby/)
-[rubocop](https://github.com/rubocop-hq/rubocop-rails)
+## Important Gems(Libraries):
+* [rspec-rails](https://github.com/rspec/rspec-rails)
+* [capybara](https://github.com/teamcapybara/capybara)
+* [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers)
+* [faraday](https://github.com/lostisland/faraday)
+* [webmock](https://github.com/bblimke/webmock)
+* [vcr](https://github.com/vcr/vcr)
+* [figaro](https://github.com/laserlemon/figaro)
+* [travis](https://docs.travis-ci.com/user/languages/ruby/)
+* [rubocop-rails](https://github.com/rubocop-hq/rubocop-rails)
+* [bcrypt](https://github.com/codahale/bcrypt-ruby)
+* [factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails)
+* [faker](https://github.com/faker-ruby/faker)
+* [simplecov](https://github.com/simplecov-ruby/simplecov)
 
 ## Getting Started
 1. Get an api key from [The Movie Database API](https://developers.themoviedb.org/3/getting-started/authentication)
