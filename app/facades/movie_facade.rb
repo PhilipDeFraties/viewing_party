@@ -1,7 +1,7 @@
 class MovieFacade
   def self.details(movie_id)
     json = MovieService.movie_details(movie_id)
-    @movie = MovieDetails.new(json)
+    MovieDetails.new(json)
   end
 
   def self.top40
