@@ -28,6 +28,7 @@ Viewing party is an application in which users can explore movie options and cre
 [vcr](https://github.com/vcr/vcr)
 [figaro](https://github.com/laserlemon/figaro)
 [travis](https://docs.travis-ci.com/user/languages/ruby/)
+[rubocop](https://github.com/rubocop-hq/rubocop-rails)
 
 ## Getting Started
 1. Get an api key from [The Movie Database API](https://developers.themoviedb.org/3/getting-started/authentication)
@@ -40,7 +41,7 @@ Replace <YOUR API KEY> with the key you obtained from The Movie Database API.
 6. From your terminal run `$ rails s` and navigate to http://localhost:3000/ in your browser to navigate the app
 
 ## Testing
-RSpec and Capybara were used for unit and integration testing and Travis-CI was used for continuous integration ensuring any changes pushed to the main branch did not break any previously implemented tests. Simplecov was used to track total test coverage and as of 12/10/2020 shows 100% coverage. To run our test suite, RSpec, enter `$ bundle exec rspec` in the terminal. (All 98 tests should be passing). To see a coverage report enter '$open coverage/index.html'
+RSpec and Capybara were used for unit and integration testing, Travis-CI was used for continuous integration ensuring any changes pushed to the main branch did not break any previously implemented tests. Simplecov was used to track total test coverage and as of 12/10/2020 shows 100% coverage. To run our test suite, RSpec, enter `$ bundle exec rspec` in the terminal. (All 98 tests should be passing). To see a coverage report enter '$open coverage/index.html'
 
 ## Future Changes
 1. Full CRUD functionality for users, parties, and friendships
