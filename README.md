@@ -28,18 +28,25 @@ Viewing party is an application in which users can explore movie options and cre
 [vcr](https://github.com/vcr/vcr)
 [figaro](https://github.com/laserlemon/figaro)
 [travis](https://docs.travis-ci.com/user/languages/ruby/)
+[rubocop](https://github.com/rubocop-hq/rubocop-rails)
 
 ## Getting Started
 1. Get an api key from [The Movie Database API](https://developers.themoviedb.org/3/getting-started/authentication)
 1. Fork and clone the repo
 2. Install any missing gems from gem file
-3. Install gem packages with `bundle install`
-4. Setup the database with `rails db:{create,migrate,seed}`
+3. Install gem packages with `$ rails db:{create,migrate,seed}`
 5. In config/application.ymal paste:
 `MOVIEDB_API_KEY: "<YOUR API KEY>"`
 Replace <YOUR API KEY> with the key you obtained from The Movie Database API.
 6. From your terminal run `$ rails s` and navigate to http://localhost:3000/ in your browser to navigate the app
-7. To run our test suite, RSpec, enter `bundle exec rspec` in the terminal. (All 97 tests should be passing)
+
+## Testing
+* RSpec and Capybara were used for unit and integration testing and project development adhered to TDD principles.
+* Travis-CI was used for continuous integration ensuring any changes pushed to the main branch did not break any previously implemented tests.
+* Simplecov was used to track total test coverage and as of 12/10/2020 shows 100% coverage.
+* Webmock and VCR gems were used to stub out API calls in the test suite. When running RSpec for the first time real responses from the Movie Database API will be recorded as 'cassettes' and kept as .yml files in the 'spec/fixtures' directory. The cassettes are set to expire 7 days from creation and will re-record when RSpec is run again after that 7 day period.
+* To run our test suite, RSpec, enter `$ bundle exec rspec` in the terminal. (All 98 tests should be passing).
+* To see a coverage report enter '$open coverage/index.html'
 
 ## Future Changes
 1. Full CRUD functionality for users, parties, and friendships

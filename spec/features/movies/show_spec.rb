@@ -51,16 +51,16 @@ RSpec.describe "Movie Details page" do
       within '#runtime' do
         expect(page).to have_content('Runtime: 2 hrs 7 mins')
       end
-      within '#genre' do 
+      within '#genre' do
         expect(page).to have_content("Genre(s):")
       end
-      within '#description' do 
+      within '#description' do
         expect(page).to have_content('A wealthy entrepreneur secretly creates a theme park featuring living dinosaurs')
       end
       within '#cast' do
         expect(page).to have_content('Sam Neill as Dr. Alan Grant')
       end
-      within '#review' do 
+      within '#review' do
         expect(page).to have_content('4 Reviews')
       end
       within '#review' do
@@ -86,11 +86,7 @@ RSpec.describe "Movie Details page" do
           click_link
         end
         within '#description' do
-          begin
-            expect(page).to_not have_css("object[class='flash video']")
-          rescue RSpec::Expectations::ExpectationNotMetError
-            expect(page).to_not have_css("iframe[class='html5 video']")
-          end
+            expect(page).to_not have_css("#trailer")
         end
       end
     end
