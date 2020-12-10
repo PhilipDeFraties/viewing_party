@@ -16,10 +16,11 @@ Viewing party is an application in which users can explore movie options and cre
    [Github](https://github.com/GregJMitchell) | [LinkedIn](https://www.linkedin.com/in/gregory-j-mitchell/)
 
 ## Schema
-<img src="https://github.com/Oxalisviolacea/viewing_party/blob/main/images/Viewing%20Party%20Schema.jpg" width="450" height="350">
+<img src="https://github.com/Oxalisviolacea/viewing_party/blob/main/images/Viewing%20Party%20Schema.jpg" width="450" height="350">  
+
 ## Built With
 - Ruby on Rails
-- JQuery
+- JQuery  
 ## Getting Started
 1. Get an api key from [The Movie Database API](https://developers.themoviedb.org/3/getting-started/authentication)
 1. Fork and clone the repo
