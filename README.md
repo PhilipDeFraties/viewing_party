@@ -36,8 +36,7 @@ Viewing party is an application in which users can explore movie options and cre
 3. Install gem packages with `bundle install`
 4. Setup the database with `rails db:{create,migrate,seed}`
 5. In config/application.ymal paste:
-`MOVIEDB_API_KEY: "<YOUR API KEY>"
-NYT_MOVIE_REVIEWS_API_KEY: "<YOUR API KEY>"`
+`MOVIEDB_API_KEY: "<YOUR API KEY>"`
 Replace <YOUR API KEY> with the key you obtained from The Movie Database API.
 6. From your terminal run `$ rails s` and navigate to http://localhost:3000/ in your browser to navigate the app
 7. To run our test suite, RSpec, enter `bundle exec rspec` in the terminal. (All 97 tests should be passing)
