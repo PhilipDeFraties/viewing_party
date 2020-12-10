@@ -17,7 +17,7 @@ Viewing party is an application in which users can explore movie options and cre
    [Github](https://github.com/GregJMitchell) | [LinkedIn](https://www.linkedin.com/in/gregory-j-mitchell/)
 
 ## Schema
-![](https://github.com/Oxalisviolacea/viewing_party/blob/main/images/Viewing%20Party%20Schema.jpg)
+![](https://github.com/Oxalisviolacea/viewing_party/blob/main/images/Viewing%20Party%20Schema.jpg =100x20)
 ## Built With
 - Ruby on Rails
 - JQuery
