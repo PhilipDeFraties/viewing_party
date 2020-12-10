@@ -3,20 +3,28 @@
 This is the base repo for the [viewing party project](https://backend.turing.io/module3/projects/viewing_party) used for Turing's Backend Module 3.
 
 ### About this Project
-
 Viewing party is an application in which users can explore movie options and create a viewing party event for the user and friend's.
 
-## Local Setup
+## Contributors
+- Hanna Davis
+   [Github] | [LinkedIn](https://www.linkedin.com/in/hanna-davis/)
+- Philip DeFraties
+    [Github](https://github.com/philipdefraties) | [LinkedIn](https://www.linkedin.com/in/philip-defraties-4232681b6/)
+- Greg Mitchell
+   [Github](https://github.com/GregJMitchell) | [LinkedIn](https://www.linkedin.com/in/gregory-j-mitchell/)
 
-1. Fork and Clone the repo
-2. Install gem packages: `bundle install`
-3. Setup the database: `rails db:create`
+## Schema
+## Built With
+- Ruby on Rails
+## Getting Started
+1. Get an api key from [The Movie Database API](https://developers.themoviedb.org/3/getting-started/authentication)
+1. Fork and clone the repo
+2. Install any missing gems from gem file
+3. Install gem packages with `bundle install`
+4. Setup the database with `rails db:{create,migrate,seed}`
+5. Run RSpec with `bundle exec rspec` (All 97 tests should be passing)
 
-
-## Versions
-
-- Ruby 2.5.3
-
-- Rails 5.2.4.3
-
-Example wireframes to follow are found [here](https://backend.turing.io/module3/projects/viewing_party/wireframes)
+## Additonal References
+- [Base Respository](https://backend.turing.io/module3/projects/viewing_party) used for Turing's Backend Module 3.
+- [Wire Frames](https://backend.turing.io/module3/projects/viewing_party/wireframes)
+- [API Documentation](https://developers.themoviedb.org/3/getting-started/authentication)
