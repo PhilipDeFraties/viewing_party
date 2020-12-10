@@ -8,7 +8,7 @@ RSpec.describe "New party page" do
       expect(page).to have_content('Please login.')
     end
   end
-  
+
   describe "As a registered user when I visit a movies details page" do
     before :each do
       @user_1 = create :user

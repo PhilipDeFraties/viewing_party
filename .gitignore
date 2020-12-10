@@ -13,6 +13,9 @@
 !/log/.keep
 !/tmp/.keep
 
+
+/app/channels/*
+
 /node_modules
 /yarn-error.log
 
