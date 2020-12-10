@@ -65,7 +65,7 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
-  
+
   config.include Capybara::DSL
 
   config.infer_spec_type_from_file_location!
