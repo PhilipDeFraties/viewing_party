@@ -22,7 +22,7 @@ RSpec.describe Party, type: :model do
       user_3 = create :user
       movie_1 = create :movie
       Friendship.create!(user_id: user_1.id, friend_id: user_2.id)
-      party_1 = user_1.parties.create!(movie_id: movie_1.id, date: Date.today.strftime('%m/%d/%Y'), time: '9:30', duration: 142)
+      party_1 = user_1.parties.create!(movie_id: movie_1.id, date: Date.today.strftime('%d/%m/%Y'), time: '9:30', duration: 142)
       party_1.invite_friends(["", user_2.id, user_3.id])
       pg = party_1.party_guests.map { |guest| guest.user }
       expect(pg).to eq([user_2, user_3])
@@ -34,7 +34,7 @@ RSpec.describe Party, type: :model do
       user_3 = create :user
       movie_1 = create :movie
       Friendship.create!(user_id: user_1.id, friend_id: user_2.id)
-      party_1 = user_1.parties.create!(movie_id: movie_1.id, date: Date.today.strftime('%m/%d/%Y'), time: '9:30', duration: 142)
+      party_1 = user_1.parties.create!(movie_id: movie_1.id, date: Date.today.strftime('%d/%m/%Y'), time: '9:30', duration: 142)
       expect(party_1.user_status(user_1.id)).to eq('Host')
     end
 

@@ -1,0 +1,4 @@
+<% results = "<div class='results'></div>" %>
+$(".results").fadeOut(1000)
+$(".results").replaceWith("<%= results.html_safe%>")
+$(".results").append("<%= j render partial: 'search', locals: {results: @results} %>").hide().fadeIn(1000)

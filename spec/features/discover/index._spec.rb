@@ -6,9 +6,11 @@ RSpec.describe "Discover Page" do
       @user_1 = create :user
 
       visit '/'
-      fill_in :email, with: @user_1.email
-      fill_in :password, with: @user_1.password
-      click_button 'Login'
+      within ("#login-form") do
+        fill_in :email,	with: @user_1.email
+        fill_in :password,	with: @user_1.password
+        click_button 'Login'
+      end
       visit '/discover'
     end
 

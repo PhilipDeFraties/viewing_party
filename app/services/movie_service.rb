@@ -1,6 +1,6 @@
 class MovieService
   def self.movie_details(movie_id)
-    uri = "/3/movie/#{movie_id}?&append_to_response=credits%2Creviews"
+    uri = "/3/movie/#{movie_id}?&append_to_response=credits%2Creviews%2Cvideos"
     get_results(uri)
   end
 
