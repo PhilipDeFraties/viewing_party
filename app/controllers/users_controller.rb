@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_current_user, only: %i[edit change_password]
+
   def new
     if current_user
       flash[:notice] = 'You are already registerd.'

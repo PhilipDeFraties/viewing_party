@@ -26,7 +26,7 @@ describe User, type: :model do
     party_3 = Party.create!(user_id: user_2.id, movie_id: movie_2.id, date: '12-19-2020', time: '4:30', duration: 160)
     PartyGuest.create!(user_id: user_1.id, party_id: party_2.id)
 
-    expect(user_1.find_parties).to eq([party_1, party_2])
+    expect(user_1.find_parties).to eq([party_2, party_1])
     expect(user_1.find_parties).to_not include(party_3)
   end
 

@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+  before_action :require_current_user
+
   def show
     @results = MovieFacade.details(params[:movie_id])
   end

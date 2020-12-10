@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get '/movies/search', to: 'movies#search'
   resources :movies, only: %i[show], param: :movie_id
 
-  post '/friendship/create', to: 'friendships#create'
+  post '/friendship', to: 'friendships#create'
 
   get '/viewing-party/new', to: 'parties#new'
   post '/viewing-party', to: 'parties#create'

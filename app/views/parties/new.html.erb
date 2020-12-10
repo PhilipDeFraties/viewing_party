@@ -1,7 +1,7 @@
 <%= form_with url: '/viewing-party', local: true do |f| %>
 
 <%= f.label :title %>
-<%= f.text_field :title, value: params[:title], :readonly => true %>
+<%= f.text_field :title, value: params[:title], :readonly => true %><br><br>
 
 <%= f.hidden_field :runtime, :value => params[:runtime] %>
 
@@ -10,10 +10,10 @@
 <%= f.hidden_field :logo, :value => params[:logo] %>
 
 <%= f.label :duration %>
-<%= f.text_field :duration, value: params[:runtime] %>
+<%= f.number_field :duration, value: params[:runtime] %><br><br>
 
 <%= f.label :date %>
-<%= f.date_field :date %><br><br>
+<%= f.date_field :date, min: Date.today, max: Date.today.next_year(4) %><br><br>
 
 <%= f.label :time %>
 <%= f.time_field :time %><br><br>
