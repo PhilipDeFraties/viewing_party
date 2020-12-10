@@ -52,7 +52,21 @@ RSpec.describe MovieDetails do
             "url": "https://www.themoviedb.org/review/5d17c91385702e001eb921db"
           }
     ]},
-      poster_path: '/2TeJfUZMGolfDdW6DKhfIWqvq8y.jpg'
+        poster_path: '/2TeJfUZMGolfDdW6DKhfIWqvq8y.jpg',
+        videos: {
+      results: [
+        {
+          "id": "592c5d16c3a36877bc0817da",
+          "iso_639_1": "en",
+          "iso_3166_1": "US",
+          "key": "ByXuk9QqQkk",
+          "name": "Spirited Away - Official Trailer",
+          "site": "YouTube",
+          "size": 720,
+          "type": "Trailer"
+            }
+          ]
+        }
     }
 
     movie_details = MovieDetails.new(attrs)

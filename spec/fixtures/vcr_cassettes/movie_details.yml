@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.themoviedb.org/3/movie/761053?api_key=API_Key&append_to_response=credits,reviews&language=en-US
+    uri: https://api.themoviedb.org/3/movie/761053?api_key=API_Key&append_to_response=credits,reviews,videos&language=en-US
     body:
       encoding: US-ASCII
       string: ''
@@ -25,7 +25,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 09 Dec 2020 20:20:25 GMT
+      - Wed, 09 Dec 2020 20:49:46 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -42,25 +42,25 @@ http_interactions:
       X-Memc-Key:
       - 695021ffea95f6546d373930b913d56b7dd13988
       X-Memc-Age:
-      - '233'
+      - '1994'
       X-Memc-Expires:
-      - '21367'
+      - '19606'
       Etag:
-      - W/"b89d1a977845354ea8581d43aa8ed990"
+      - W/"6c196bbf8634e65f7fc136103b6a755b"
       Last-Modified:
-      - Wed, 09 Dec 2020 20:20:25 GMT
+      - Wed, 09 Dec 2020 20:49:46 GMT
       Vary:
       - Accept-Encoding
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 7d885ba806a1846198f8b666005bec93.cloudfront.net (CloudFront)
+      - 1.1 48a6ccbb0ddb052ab512a3422295bd39.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - DEN50-C2
       X-Amz-Cf-Id:
-      - 9jDzfKZq4wS8eoW4KHmNSvMAw0GRerdDdsgST8nPBnDcyBHkDMARBw==
+      - nbrNmJKQhxtYFgaorowv4KZY6dP_pBF1RGoOUcjsPWafss7UHR3kqA==
       Age:
-      - '8550'
+      - '7608'
     body:
       encoding: ASCII-8BIT
       string: '{"adult":false,"backdrop_path":"/fQq1FWp1rC89xDrRMuyFJdFUdMd.jpg","belongs_to_collection":{"id":729322,"name":"Gabriel''s
@@ -69,6 +69,7 @@ http_interactions:
         romance novel Gabriel''s Inferno written by an anonymous Canadian author under
         the pen name Sylvain Reynard.","popularity":39.347,"poster_path":"/fYtHxTxlhzD4QWfEbrC1rypysSD.jpg","production_companies":[{"id":92153,"logo_path":"/psjvYkjjgAPtS8utnFYDM8t8yi7.png","name":"PassionFlix","origin_country":"US"}],"production_countries":[{"iso_3166_1":"US","name":"United
         States of America"}],"release_date":"2020-11-19","revenue":0,"runtime":0,"spoken_languages":[{"english_name":"English","iso_639_1":"en","name":"English"}],"status":"Released","tagline":"","title":"Gabriel''s
-        Inferno Part III","video":false,"vote_average":9.2,"vote_count":470,"credits":{"cast":[],"crew":[]},"reviews":{"page":1,"results":[],"total_pages":0,"total_results":0}}'
-  recorded_at: Wed, 09 Dec 2020 22:42:55 GMT
+        Inferno Part III","video":false,"vote_average":9.2,"vote_count":470,"credits":{"cast":[],"crew":[]},"reviews":{"page":1,"results":[],"total_pages":0,"total_results":0},"videos":{"results":[{"id":"5fa486b843494f004118a95b","iso_639_1":"en","iso_3166_1":"US","key":"mjPUGem9SaY","name":"Gabriel''s
+        Inferno Part III - Official Trailer (PASSIONFLIX)","site":"YouTube","size":1080,"type":"Trailer"}]}}'
+  recorded_at: Wed, 09 Dec 2020 22:56:34 GMT
 recorded_with: VCR 6.0.0
