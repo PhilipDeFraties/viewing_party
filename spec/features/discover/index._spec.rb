@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Discover Page" do
   describe "As a registered user, when I visit /discover" do
-    before :each do 
+    before :each do
       @user_1 = create :user
 
       visit '/'
@@ -14,14 +14,10 @@ RSpec.describe "Discover Page" do
       visit '/discover'
     end
 
-    it "I see a button to discover top 40 movies and when I click the button, I am redirected to the top 40 movie page" do
-      VCR.use_cassette('top_0_20') do
-        VCR.use_cassette('top_20_40') do
-          expect(page).to have_button('Find Top Rated Movies')
-          click_on 'Find Top Rated Movies'
-          expect(current_path).to eq('/movies/top40')
-        end 
-      end
+    it "I see a button to discover top 40 movies and when I click the button, I am redirected to the top 40 movie page", :vcr do
+      expect(page).to have_button('Find Top Rated Movies')
+      click_on 'Find Top Rated Movies'
+      expect(current_path).to eq('/movies/top40')
     end
 
     it "A text field to search movies by name" do
@@ -29,9 +25,9 @@ RSpec.describe "Discover Page" do
       expect(page).to have_field(:search)
     end
 
-    it "When I fill in the movie search field and click search, I am redirected to the movie search page" do
-      VCR.use_cassette('search_jurassic_park') do
-        fill_in :search,	with: "Jurassic Park" 
+    feature 'search for movie' do
+      scenario "When I fill in the movie search field and click search, I am redirected to the movie search page", :vcr do
+        fill_in :search,	with: "Jurassic Park"
         click_on 'Find Movies'
         expect(current_path).to eq('/movies/search')
       end
