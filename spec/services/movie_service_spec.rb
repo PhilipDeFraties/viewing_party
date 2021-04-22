@@ -37,7 +37,7 @@ describe MovieService do
         VCR.use_cassette('top_40') do
           top40 = MovieService.top40
           expect(top40).to be_a Array
-          first_movie = top40.first 
+          first_movie = top40.first
 
           expect(first_movie).to have_key :title
           expect(first_movie[:title]).to be_a(String)
@@ -56,7 +56,7 @@ describe MovieService do
         VCR.use_cassette('mulan_search') do
           search = MovieService.search('Mulan')
           expect(search).to be_a Array
-          first_movie = search.first 
+          first_movie = search.first
 
           expect(first_movie).to have_key :title
           expect(first_movie[:title]).to be_a(String)
@@ -65,7 +65,7 @@ describe MovieService do
           expect(first_movie[:id]).to be_a(Integer)
 
           expect(first_movie).to have_key :vote_average
-          expect(first_movie[:vote_average]).to be_a(Float)
+          expect(first_movie[:vote_average]).to be_a(Numeric)
         end
       end
     end
